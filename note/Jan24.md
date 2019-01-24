@@ -22,3 +22,4 @@ C is the operating language so it cares about memory overflow. Have to throw exc
 - CPU can only excite one thing a time: FETCH one assembly command, EXCUTE, and STORE the result. How to run separate programs?
 
 
+cd, ls, rm, cat, emacs, mv, cp, pwd, users | wc - w
