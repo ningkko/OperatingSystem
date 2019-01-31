@@ -13,7 +13,7 @@ MLFQ: Multi-Level Feedback Queue
 
 
 To handle **interruptions**, usually write inside assembly
--> _**Interrupt Register**_ 
+-> _**Interrupt Register**_ \
 E.g. When divided by 0, computer overheats\
 Only one interrupt register , if while ealing with one error, another one comes -> crash\
 So usually an interrupt register will disable interrupt while dealing with some error\
