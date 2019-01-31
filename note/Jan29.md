@@ -24,3 +24,7 @@ Modern OS systems:
 - Realtime OS: Respond as fast as possible. E.g. car brains,robots, spaceship, personal medical care device...
 
 ### Latency
+
+
+#!/bin/bash                                                                     
+! ::= BAN
