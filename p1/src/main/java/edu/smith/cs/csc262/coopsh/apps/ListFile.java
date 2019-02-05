@@ -36,11 +36,8 @@ public class ListFile extends Task {
                 files.add(listOfFiles[i].getName());
             }
 
-            else if (listOfFiles[i].isDirectory()){
+            else if (listOfFiles[i].isDirectory()) {
                 dirs.add(listOfFiles[i].getName());
-
-            }else if (listOfFiles[i].isHidden()){
-                hiddens.add(listOfFiles[i].getName());
             }
         }
 
@@ -55,13 +52,6 @@ public class ListFile extends Task {
         if (dirs!=null){
             this.println("<----- directories ----->");
             for (String s:dirs){
-                this.println(s);
-            }
-        }
-
-        if (hiddens!=null){
-            this.println("<----- hidden files ----->");
-            for (String s:hiddens){
                 this.println(s);
             }
         }

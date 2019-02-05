@@ -4,10 +4,15 @@ import edu.smith.cs.csc262.coopsh.InputLine;
 import edu.smith.cs.csc262.coopsh.ShellEnvironment;
 import edu.smith.cs.csc262.coopsh.Task;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class SimpleGrep extends Task {
 
+    /**
+     * This is the state of this program; a BufferedReader.
+     */
+    private BufferedReader current = null;
     String rawPattern;
     /**
      * All tasks are created with a possibly empty list of string arguments!
@@ -18,7 +23,20 @@ public class SimpleGrep extends Task {
     public SimpleGrep(ShellEnvironment env, String[] args) {
 
         super(env, args);
-        // get pattern without quotes
+        if (args.length >2) {
+            System.err.println("Can read only one file");
+        }else if (args.length<2){
+            System.err.println("Need 2 arguments");
+        }
+
+
+        File input = env.makeFile(args[1]);
+        try {
+            this.current = new BufferedReader(new FileReader(input));
+        } catch (FileNotFoundException e) {
+            caughtFatalException("Could not open file!", e);
+        }
+
         this.rawPattern=this.getRawPattern(args[0]);
 
     }
@@ -26,21 +44,30 @@ public class SimpleGrep extends Task {
     @Override
     protected void update() {
 
-        ArrayList<String> linesContainingPattern = new ArrayList<>();
-
-        InputLine line = this.input.poll();
-
-        // only output and print when we've seen the whole file!
-        if (line.isEndOfFile()) {
-            this.println(linesContainingPattern);
-            this.closeOutput();
-            this.exit(0);
+        String next;
+        try {
+            next = current.readLine();
+        } catch (IOException e) {
+            caughtFatalException("Reading file error!", e);
             return;
-
         }
 
-        if (line.toString().contains(this.rawPattern))
-            linesContainingPattern.add(line.toString());
+        // Case 2A: We're done.
+        if (next == null) {
+            this.closeOutput();
+            this.exit(0);;
+            try {
+                current.close();
+            } catch (IOException e) {
+                caughtFatalException("Could not close file!", e);
+                return;
+            }
+            current = null;
+        } else {
+            // Case 2B: send this input along.
+            if (next.contains(rawPattern))
+                this.println(next);
+        }
 
 
     }

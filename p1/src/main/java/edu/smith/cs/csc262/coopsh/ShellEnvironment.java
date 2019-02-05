@@ -17,10 +17,10 @@ import edu.smith.cs.csc262.coopsh.text.Token;
  * implemented, and if you use {@linkplain #makeFile(String)} instead of
  * creating new {@linkplain java.io.File} objects directly, it will try to use
  * this current working directory.
- * 
+ *
  * You will mostly be editing the {@linkplain #makeProgram(String, String[])}
  * method.
- * 
+ *
  * @author jfoley
  *
  */
@@ -36,7 +36,7 @@ public class ShellEnvironment {
 
 	/**
 	 * Create a shell environment from the current directory.
-	 * 
+	 *
 	 * @param currentDirectory - try {@code new File(".")}.
 	 */
 	public ShellEnvironment(File currentDirectory) {
@@ -48,7 +48,7 @@ public class ShellEnvironment {
 	/**
 	 * This is the core method of this environment. This is the "exec" system call
 	 * for our toy OS here.
-	 * 
+	 *
 	 * @param name - the name of the program to run.
 	 * @param args - the arguments to pass to that program.
 	 * @return a Task object.
@@ -57,56 +57,64 @@ public class ShellEnvironment {
 		name.toLowerCase();
 
 		switch (name) {
-		// Program: return a new Task object.
-		case "cat":
-			return new Cat(this, args);
+			// Program: return a new Task object.
+			case "cat":
+				return new Cat(this, args);
 
-		case "pwd":
-			return new Pwd(this, args);
+			case "pwd":
+				return new Pwd(this, args);
 
-		case "wc":
-			return new WordCount(this, args);
+			case "wc":
+				return new WordCount(this, args);
 
-		case "echo":
-			return new Echo(this,args);
+			case "echo":
+				return new Echo(this,args);
 
-		case "head":
-			return new Head(this,args);
+			case "head":
+				return new Head(this,args);
 
-		case "listfile":
-			if (args.length!=0)
-				throw new IllegalArgumentException("Cannot pass arguments");
-			return new ListFile(this,args);
+			case "tail":
+				return new Tail(this,args);
 
-		case "setvar":
-			if (args.length!=2)
-				throw new IllegalArgumentException("Exactly 2 arguments needed!");
-			this.setVariable(args[0],args[1]);
+			case "sort":
+				return new Sort(this,args);
 
-		// cd is special.
-		case "cd":
-			if (args.length > 1)
-				throw new IllegalArgumentException("More than one argument to cd!");
-			else if(args.length==0||args[0].equals("~")){
-				// find the user dir
-				String currentUsersHomeDir = System.getProperty("user.home");
-				//cd to home dir
-				this.currentDirectory=makeFile(currentUsersHomeDir);
+			case "listfile":
+				if (args.length!=0)
+					throw new IllegalArgumentException("Cannot pass arguments");
+				return new ListFile(this,args);
 
-			}else {
-				executeChangeDir(args[0]);
-			}
+			case "setvar":
+				if (args.length!=2)
+					throw new IllegalArgumentException("Exactly 2 arguments needed!");
+				this.setVariable(args[0],args[1]);
+				// print the value of this variable
+				return new SetVar(this,args,args[0]);
 
-			return null;
-		// Agh!
-		default:
-			throw new RuntimeException("No such program: " + name);
+			// cd is special.
+			case "cd":
+				if (args.length > 1)
+					throw new IllegalArgumentException("More than one argument to cd!");
+				else if(args.length==0||args[0].equals("~")){
+					// find the user dir
+					String currentUsersHomeDir = System.getProperty("user.home");
+					//cd to home dir
+					this.currentDirectory=makeFile(currentUsersHomeDir);
+
+				}else {
+					executeChangeDir(args[0]);
+				}
+
+				return null;
+			// Agh!
+			default:
+				throw new RuntimeException("No such program: " + name);
 		}
 	}
 
 	/**
 	 * This tries to append the string to the current directory if it makes sense...
-	 * 
+	 *
 	 * @param path - the path the user typed in.
 	 * @return a file from the local directory or an absolute path depending on
 	 *         whether it starts with a /
@@ -121,7 +129,7 @@ public class ShellEnvironment {
 
 	/**
 	 * This is how "cd" works in our shell. It's kind of magical.
-	 * 
+	 *
 	 * @param path
 	 */
 	private void executeChangeDir(String path) {
@@ -145,7 +153,7 @@ public class ShellEnvironment {
 	/**
 	 * Don't worry about the implementation here. This parses a subset of shell
 	 * syntax, and finds the statements separated by pipes.
-	 * 
+	 *
 	 * @param line a string
 	 * @return a list of tasks, that were maybe separated by pipes before.
 	 */
