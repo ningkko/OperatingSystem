@@ -20,6 +20,7 @@ public class Echo extends Task {
         String arg=String.join(" ",args);
 
         this.println(arg);
-
+        this.closeOutput();
+        this.exit(0);
     }
 }
