@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="865ee04b-bf83-4348-a386-5b1ff8ef7405" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Echo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Echo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/WordCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/WordCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/ShellEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/ShellEnvironment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/Echo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/Echo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/SetVar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/WordCount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/WordCount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/WordCount.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
@@ -91,6 +80,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -101,6 +99,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Echo.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/WordCount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java" />
       </list>
     </option>
   </component>
@@ -137,39 +136,6 @@
             </path>
             <path>
               <item name="CoopShell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="p1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoopShell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="p1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="coopsh" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoopShell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="p1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="coopsh" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoopShell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="p1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="coopsh" type="462c0819:PsiDirectoryNode" />
-              <item name="text" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoopShell" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -182,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549332398948" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549333862663" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -239,15 +205,16 @@
       <updated>1549251125902</updated>
       <workItem from="1549251130700" duration="74000" />
       <workItem from="1549286365453" duration="731000" />
-      <workItem from="1549295666031" duration="2211000" />
+      <workItem from="1549295666031" duration="3394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3016000" />
+    <option name="totallyTimeSpent" value="4199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="43" width="1260" height="737" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25779969" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -298,13 +265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Head.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Cat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -334,6 +294,20 @@
             <element signature="e#412#413#0" expanded="true" />
             <element signature="e#435#436#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Head.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
         </state>
       </provider>
     </entry>
