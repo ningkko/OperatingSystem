@@ -79,6 +79,23 @@ public class ShellEnvironment {
 			case "sort":
 				return new Sort(this,args);
 
+			case "sg":
+				return new SimpleGrep(this,args);
+
+			case "simplegrep":
+				return new SimpleGrep(this,args);
+
+			case "rg":
+				return new RegexGrep(this,args);
+
+			case "regexgrep":
+				return new RegexGrep(this,args);
+
+			case "ls":
+				if (args.length!=0)
+					throw new IllegalArgumentException("Cannot pass arguments");
+				return new ListFile(this,args);
+
 			case "listfile":
 				if (args.length!=0)
 					throw new IllegalArgumentException("Cannot pass arguments");
