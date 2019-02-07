@@ -8,6 +8,16 @@ import java.io.*;
 public class Head extends Task {
 
     /**
+     * number of lines the user wants to print
+     */
+    int command;
+
+    /**
+     * Number of the current output line
+     */
+    int currentLineNum;
+
+    /**
      * This is the state of this program; a BufferedReader.
      */
     private BufferedReader bufferedReader = null;
@@ -20,15 +30,26 @@ public class Head extends Task {
     public Head(ShellEnvironment env, String[] args) {
         super(env, args);
 
-        if (args.length > 2) {
-            System.err.println("Can only read one file.");
+        if (args.length != 2) {
+            System.err.println("2 input arguments expected.");
+            this.exit(1);
+            return;
         }
-        else if(args.length==1){
-            File input = env.makeFile(args[0]);
-            createBufferedReader(input);
-        }else{
-            File input = env.makeFile(args[1]);
-            createBufferedReader(input);
+
+
+        try{
+            command=Integer.parseInt(args[0]);
+        }catch (Exception err){
+            caughtFatalException("First argument -> integer expected",err);
+        }
+
+        currentLineNum=1;
+
+        File input = env.makeFile(args[1]);
+        try {
+            this.bufferedReader = new BufferedReader(new FileReader(input));
+        } catch (FileNotFoundException e) {
+            caughtFatalException("Could not open file!", e);
         }
 
     }
@@ -36,58 +57,39 @@ public class Head extends Task {
     @Override
     protected void update() {
 
-        if (args.length==1){
-           new Cat(env,args);
-        }else{
+        String nextLine;
 
-            int stopLineNum=1;
-            try{
-                stopLineNum=Integer.parseInt(args[0]);
-            }catch (Exception e){
-                System.err.println("Wrong type of line number passed");
+        while(currentLineNum<=command){
+
+            try {
+                nextLine = bufferedReader.readLine();
+            } catch (IOException e) {
+                caughtFatalException("Reading file error!", e);
+                this.exit(1);
+                return;
             }
-            int currentLineNum=1;
-            String nextLine;
 
-            while(currentLineNum<=stopLineNum){
-
+            if (nextLine == null) {
                 try {
-                    nextLine = bufferedReader.readLine();
+                    bufferedReader.close();
                 } catch (IOException e) {
-                    caughtFatalException("Reading file error!", e);
+                    caughtFatalException("Could not close file!", e);
                     return;
                 }
+                bufferedReader = null;
+                break;
 
-                if (nextLine == null) {
-                    this.closeOutput();
-                    this.exit(0);;
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e) {
-                        caughtFatalException("Could not close file!", e);
-                        return;
-                    }
-                    bufferedReader = null;
-
-                } else {
-                    // Case 2B: send this input along.
-                    this.println(nextLine);
-                    currentLineNum++;
-                }
+            } else {
+                // Case 2B: send this input along.
+                this.println(nextLine);
+                currentLineNum++;
             }
-
         }
 
+        this.closeOutput();
+        this.exit(0);
+        return;
+
     }
-
-    private void createBufferedReader(File input){
-        try {
-            this.bufferedReader = new BufferedReader(new FileReader(input));
-        } catch (FileNotFoundException e) {
-            caughtFatalException("Could not open file!", e);
-        }
-    }
-
-
 
 }

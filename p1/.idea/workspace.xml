@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="865ee04b-bf83-4348-a386-5b1ff8ef7405" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SetVar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/ShellEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/ShellEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SimpleGrep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SimpleGrep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Sort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/ShellEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/ShellEnvironment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/ListFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/ListFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/SimpleGrep.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/SimpleGrep.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/Sort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/smith/cs/csc262/coopsh/apps/Sort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Head.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Head.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,20 +17,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Cat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="313">
               <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Sort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
+            <state relative-caret-position="1185">
               <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Head.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
               <folding>
-                <element signature="e#2258#2259#0" expanded="true" />
-                <element signature="e#2299#2300#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,7 +47,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
+            <state relative-caret-position="1530">
               <caret line="109" selection-start-line="109" selection-end-line="109" />
               <folding>
                 <element signature="e#2613#2614#0" expanded="true" />
@@ -66,23 +66,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/WordCount.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-              <folding>
-                <element signature="e#412#413#0" expanded="true" />
-                <element signature="e#435#436#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Echo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="180">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -90,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
+            <state relative-caret-position="345">
               <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
             </state>
           </provider>
@@ -99,7 +86,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SimpleGrep.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="960">
               <caret line="69" column="9" selection-start-line="46" selection-start-column="7" selection-end-line="69" selection-end-column="9" />
             </state>
           </provider>
@@ -108,7 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/ShellEnvironment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
+            <state relative-caret-position="2385">
               <caret line="168" selection-start-line="168" selection-end-line="168" />
             </state>
           </provider>
@@ -117,7 +104,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SetVar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
+            <state relative-caret-position="360">
               <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -149,13 +136,14 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SetVar.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ReadFileHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Sort.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Head.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="278" />
     <option name="y" value="43" />
-    <option name="width" value="1260" />
+    <option name="width" value="992" />
     <option name="height" value="737" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -164,6 +152,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -215,13 +204,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549337234115" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549505698515" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -278,18 +266,18 @@
       <updated>1549251125902</updated>
       <workItem from="1549251130700" duration="74000" />
       <workItem from="1549286365453" duration="731000" />
-      <workItem from="1549295666031" duration="6579000" />
+      <workItem from="1549295666031" duration="6703000" />
+      <workItem from="1549501630650" duration="1459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7384000" />
+    <option name="totallyTimeSpent" value="8967000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="43" width="1260" height="737" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25779969" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25767368" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -298,7 +286,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32868218" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32868218" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32739726" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -306,9 +294,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32868218" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32739726" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32868218" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32739726" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -331,13 +319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Head.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1203">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/WordCount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -349,57 +330,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ReadFileHelper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Sort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Echo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Cat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SimpleGrep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="69" column="9" selection-start-line="46" selection-start-column="7" selection-end-line="69" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SetVar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ReadFileHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1185">
+          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="1530">
           <caret line="109" selection-start-line="109" selection-end-line="109" />
           <folding>
             <element signature="e#2613#2614#0" expanded="true" />
@@ -407,10 +348,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/ListFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SimpleGrep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="69" column="9" selection-start-line="46" selection-start-column="7" selection-end-line="69" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/ShellEnvironment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="2385">
           <caret line="168" selection-start-line="168" selection-end-line="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/SetVar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Cat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Echo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -421,13 +400,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Sort.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/smith/cs/csc262/coopsh/apps/Head.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+        <state relative-caret-position="165">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
           <folding>
-            <element signature="e#2258#2259#0" expanded="true" />
-            <element signature="e#2299#2300#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
