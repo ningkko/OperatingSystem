@@ -1,7 +1,7 @@
 # CSC262P1
 Smith College / CSC262 Operating Systems / Cooperative Multitasking Shell in Java
 
-## demo
+## DEMO
 
 ### $ cat test/test.txt
 o: unix is great os. unix is opensource. unix is free os.\
@@ -90,7 +90,7 @@ o: unix is great os. unix is opensource. unix is free os.\
 o: Unix linux which one you choose.\
 o: uNix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.\
 RegexGrep .steps=4 .inputLines=0 .outputLines=4\
-ConsolePrinter .steps=4 .inputLines=4 .outputLines=3\
+ConsolePrinter .steps=4 .inputLines=4 .outputLines=3
 
 
 ### $  regexgrep linu. test/test.txt
@@ -121,9 +121,9 @@ ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
 
 
 ### $ cd ~
-$ pwd\
+### $ pwd\
 o: /Users/apple\
 Pwd .steps=1 .inputLines=0 .outputLines=2\
 ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
 
-$ 
+### $ 
