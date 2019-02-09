@@ -121,7 +121,7 @@ ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
 
 
 ### $ cd ~
-### $ pwd\
+### $ pwd
 o: /Users/apple\
 Pwd .steps=1 .inputLines=0 .outputLines=2\
 ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
