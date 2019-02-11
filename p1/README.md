@@ -1,7 +1,7 @@
 # CSC262P1
 Smith College / CSC262 Operating Systems / Cooperative Multitasking Shell in Java
 
-## DEMO
+## demo
 
 ### $ cat test/test.txt
 o: unix is great os. unix is opensource. unix is free os.\
@@ -114,16 +114,22 @@ ListFile .steps=1 .inputLines=0 .outputLines=11\
 ConsolePrinter .steps=11 .inputLines=11 .outputLines=10
 
 
-### $ setvar x 10
-o: 10\
-SetVar .steps=1 .inputLines=0 .outputLines=2\
+### $ setvar a helloworld
+o: helloworld
+SetVar .steps=1 .inputLines=0 .outputLines=2
+ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
+
+
+### $ echo $a
+o: helloworld
+Echo .steps=1 .inputLines=0 .outputLines=2
 ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
 
 
 ### $ cd ~
-### $ pwd
+$ pwd\
 o: /Users/apple\
 Pwd .steps=1 .inputLines=0 .outputLines=2\
 ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
 
-### $ 
+$ 
