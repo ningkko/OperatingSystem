@@ -54,7 +54,7 @@ public class ShellEnvironment {
 	 * @return a Task object.
 	 */
 	public Task makeProgram(String name, String[] args) {
-		name.toLowerCase();
+		name=name.toLowerCase();
 
 		switch (name) {
 			// Program: return a new Task object.

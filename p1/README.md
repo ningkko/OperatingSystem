@@ -115,14 +115,14 @@ ConsolePrinter .steps=11 .inputLines=11 .outputLines=10
 
 
 ### $ setvar a helloworld
-o: helloworld
-SetVar .steps=1 .inputLines=0 .outputLines=2
+o: helloworld\
+SetVar .steps=1 .inputLines=0 .outputLines=2\
 ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
 
 
 ### $ echo $a
-o: helloworld
-Echo .steps=1 .inputLines=0 .outputLines=2
+o: helloworld\
+Echo .steps=1 .inputLines=0 .outputLines=2\
 ConsolePrinter .steps=2 .inputLines=2 .outputLines=1
 
 
