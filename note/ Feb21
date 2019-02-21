@@ -1,0 +1,53 @@
+Operating System Feb21
+
+Paging and Address Translation
+- Each process can have its own page table
+- Pages are fixed sized, even if a process takes 1.01% of a page, that 0.01% will take a whole new page to construct the pool for the process, and the left space cannot be used for other processes.
+- Pooling Fixed Size memory -> easier
+- virtual address -> physical address -> get data
+    - expensive to go from virtual addresses to physical addresses
+        Both in time and space
+        Time to look up, space to store if a section of space is used or not (to store whether the space        is used). If one bit for 1 mb, then for a 8 GB computer it’s gonna be a big memory
+
+- Address Space Layout Randomization (ALSP)
+    When get the virtual address back, the addresses will be spread. This is used to prevent virus because putting the code into one block, the virus won’t go into another distant block. 
+By spreading things around, make the chance to guess where the next chunk wrong much higher. Might figure out where other chunks are by looking at how long it takes to load something
+
+When copy a progress is cheap, just copy the virtual address. Only when the content is really changed will the copy progress happen.
+
+
+- TLB(Translation Lookaside Buffer)
+    - Address Cache
+    - Rebuild the map of virtual address and physical address (for quicker access) on  HASHMAP <virtual, physical> 
+    - There’s also Cache<virtual, physical>, which might be the first half of the HASHMAP.
+
+
+Everything on the screen is dot product, machine learning is about dot product..
+- GPU => Almost a matrix multiplier O(n^3)
+
+Cache
+- Browser - 2-72s - Server
+    - HASHMAP<url, (file, (Server Opinion)>
+    - Server opinion: how frequently is the cache useful
+- CPU - TLB - RAM
+    - No user opinion needed
+    - replacement algorithm 
+        - always
+        - never
+        - least recently used
+        - least frequently used
+        - When get anew task, kick away the oldest one
+- Spatial locality
+- Temporal locality
+- RISC (Reduced Instruction Set Computer),
+    - ARM
+- CISC (Complex Instruction Set Computer)
+    - Intel
+    - easier to code
+    - code more
+    - Now Intel is RISC
+
+Content Switches
+- Some hardware allow to put precess IDs
+- Special register and things to let you store things and then switch
+
