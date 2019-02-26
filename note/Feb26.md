@@ -2,29 +2,29 @@ Feb26 - OS Note
 
 
 ### Space & Memory - arbitrary size
-1. Segmentation
+#### Segmentation
 - Process level
 - ~= block allocation
- * Offset
- * Size
+  - Offset
+  - Size
 - The more flexible the structure, the more cost to organize
 
-2. Paging - Fixed size
+#### Paging - Fixed size
 - OS level
 - page id + fixed size
 
 
 ### Time & Scheduling
 
-1. Oracle scheduling
+#### Oracle scheduling
 - imagining that we know how long a process is going to take
-- Algos
+#### Algos
  * Short job first
  * First come first served
  * Longest job first 
-- Time slice
+#### Time slice
  * fixed size
-- Algos
+#### Algos
  * simple- Round Robin
  * fair and less latency
  * multilayer -  MLFQ
@@ -37,17 +37,17 @@ Feb26 - OS Note
 
 
 ### Data Structure
-1. Stack - LIFO
+#### Stack - LIFO
 	- Just a pointer in C, pointing to the first cell. 
 	- In Java, have to define something that comes after the first cell.
-2. Queue - FIFO
+#### Queue - FIFO
  	- Scheduling, concurrency
-3. Pool
+#### Pool
  	- Alloc & free
 	- OS has fixed size resources
-4. Tree
+#### Tree
 	- Binary Trees
-		* Not useful due to large depth
+		-> Not useful due to large depth
 	- Recursive structure are usually called trees ignoring the balancing and node thing…
 
 
