@@ -38,16 +38,14 @@ Feb26 - OS Note
 
 ### Data Structure
 #### Stack - LIFO
-	- Just a pointer in C, pointing to the first cell. 
-	- In Java, have to define something that comes after the first cell.
+- Just a pointer in C, pointing to the first cell. 
+- In Java, have to define something that comes after the first cell.
 #### Queue - FIFO
- 	- Scheduling, concurrency
+- Scheduling, concurrency
 #### Pool
- 	- Alloc & free
-	- OS has fixed size resources
+- Alloc & free
+- OS has fixed size resources
 #### Tree
-	- Binary Trees
-		-> Not useful due to large depth
-	- Recursive structure are usually called trees ignoring the balancing and node thing…
-
-
+- Binary Trees
+  - Not useful due to large depth
+- Recursive structure are usually called trees ignoring the balancing and node thing…
