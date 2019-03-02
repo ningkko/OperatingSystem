@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/memfit_c.dir/block.c.o CMakeFiles/memfit_c.dir/block_test.c.o CMakeFiles/memfit_c.dir/main.c.o CMakeFiles/memfit_c.dir/simulation.c.o  -o memfit_c 
