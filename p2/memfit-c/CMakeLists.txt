@@ -11,4 +11,4 @@ add_executable(memfit_c
         block_test.c
         main.c
         simulation.c
-        simulation.h)
+        simulation.h mainTest.c)

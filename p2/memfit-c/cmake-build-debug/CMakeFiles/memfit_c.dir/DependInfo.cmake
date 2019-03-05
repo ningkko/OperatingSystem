@@ -4,10 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c" "/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/block.c.o"
-  "/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c" "/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/block_test.c.o"
-  "/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c" "/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/main.c.o"
-  "/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c" "/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/simulation.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/block.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/block_test.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/main.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/mainTest.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/mainTest.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/simulation.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

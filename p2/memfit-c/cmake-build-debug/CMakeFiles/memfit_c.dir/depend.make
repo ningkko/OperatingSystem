@@ -11,6 +11,11 @@ CMakeFiles/memfit_c.dir/main.c.o: ../block.h
 CMakeFiles/memfit_c.dir/main.c.o: ../main.c
 CMakeFiles/memfit_c.dir/main.c.o: ../simulation.h
 
+CMakeFiles/memfit_c.dir/mainTest.c.o: ../block.h
+CMakeFiles/memfit_c.dir/mainTest.c.o: ../mainTest.c
+CMakeFiles/memfit_c.dir/mainTest.c.o: ../readFile.h
+CMakeFiles/memfit_c.dir/mainTest.c.o: ../simulation.h
+
 CMakeFiles/memfit_c.dir/simulation.c.o: ../block.h
 CMakeFiles/memfit_c.dir/simulation.c.o: ../simulation.c
 CMakeFiles/memfit_c.dir/simulation.c.o: ../simulation.h

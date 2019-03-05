@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/. 
+C_INCLUDES = -I/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/. 
 

@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c
-block.h
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
-string.h
--
-stdio.h
--
-assert.h
--
-
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
 stdlib.h
 -
 string.h
@@ -24,19 +14,13 @@ string.h
 stdbool.h
 -
 
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/mainTest.c
 block.h
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
-assert.h
--
-stdio.h
--
-
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c
-block.h
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
 simulation.h
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.h
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.h
+readFile.h
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/readFile.h
 assert.h
 -
 stdio.h
@@ -44,17 +28,11 @@ stdio.h
 string.h
 -
 
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c
-simulation.h
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.h
-assert.h
--
-stdio.h
--
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/readFile.h
 
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.h
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.h
 stdlib.h
 -
 block.h
-/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
 

@@ -108,3 +108,8 @@ void list_sort(BlockList* list, bool increasing) {
         qsort(&list->array[0], list->size, sizeof(void*), &by_size_decreasing);
     }
 }
+
+void list_sort_by_offset(BlockList* list){
+    Block** block = list->array;
+    qsort(&list->array[0], offsets, sizeof(void*), &by_size_increasing);
+    }

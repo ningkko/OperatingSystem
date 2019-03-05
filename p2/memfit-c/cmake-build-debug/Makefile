@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c
+CMAKE_SOURCE_DIR = /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/main.c.s
 .PHONY : main.c.s
 
+mainTest.o: mainTest.c.o
+
+.PHONY : mainTest.o
+
+# target to build an object file
+mainTest.c.o:
+	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/mainTest.c.o
+.PHONY : mainTest.c.o
+
+mainTest.i: mainTest.c.i
+
+.PHONY : mainTest.i
+
+# target to preprocess a source file
+mainTest.c.i:
+	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/mainTest.c.i
+.PHONY : mainTest.c.i
+
+mainTest.s: mainTest.c.s
+
+.PHONY : mainTest.s
+
+# target to generate assembly for a file
+mainTest.c.s:
+	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/mainTest.c.s
+.PHONY : mainTest.c.s
+
 simulation.o: simulation.c.o
 
 .PHONY : simulation.o
@@ -249,6 +276,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... mainTest.o"
+	@echo "... mainTest.i"
+	@echo "... mainTest.s"
 	@echo "... simulation.o"
 	@echo "... simulation.i"
 	@echo "... simulation.s"

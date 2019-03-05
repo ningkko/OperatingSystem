@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c
+CMAKE_SOURCE_DIR = /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/memfit_c.dir/depend.make
@@ -59,62 +59,76 @@ include CMakeFiles/memfit_c.dir/flags.make
 
 CMakeFiles/memfit_c.dir/block.c.o: CMakeFiles/memfit_c.dir/flags.make
 CMakeFiles/memfit_c.dir/block.c.o: ../block.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/memfit_c.dir/block.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/block.c.o   -c /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/memfit_c.dir/block.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/block.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c
 
 CMakeFiles/memfit_c.dir/block.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/memfit_c.dir/block.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c > CMakeFiles/memfit_c.dir/block.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c > CMakeFiles/memfit_c.dir/block.c.i
 
 CMakeFiles/memfit_c.dir/block.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/memfit_c.dir/block.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c -o CMakeFiles/memfit_c.dir/block.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c -o CMakeFiles/memfit_c.dir/block.c.s
 
 CMakeFiles/memfit_c.dir/block_test.c.o: CMakeFiles/memfit_c.dir/flags.make
 CMakeFiles/memfit_c.dir/block_test.c.o: ../block_test.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/memfit_c.dir/block_test.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/block_test.c.o   -c /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/memfit_c.dir/block_test.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/block_test.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c
 
 CMakeFiles/memfit_c.dir/block_test.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/memfit_c.dir/block_test.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c > CMakeFiles/memfit_c.dir/block_test.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c > CMakeFiles/memfit_c.dir/block_test.c.i
 
 CMakeFiles/memfit_c.dir/block_test.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/memfit_c.dir/block_test.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c -o CMakeFiles/memfit_c.dir/block_test.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block_test.c -o CMakeFiles/memfit_c.dir/block_test.c.s
 
 CMakeFiles/memfit_c.dir/main.c.o: CMakeFiles/memfit_c.dir/flags.make
 CMakeFiles/memfit_c.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/memfit_c.dir/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/main.c.o   -c /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/memfit_c.dir/main.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/main.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c
 
 CMakeFiles/memfit_c.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/memfit_c.dir/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c > CMakeFiles/memfit_c.dir/main.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c > CMakeFiles/memfit_c.dir/main.c.i
 
 CMakeFiles/memfit_c.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/memfit_c.dir/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c -o CMakeFiles/memfit_c.dir/main.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c -o CMakeFiles/memfit_c.dir/main.c.s
 
 CMakeFiles/memfit_c.dir/simulation.c.o: CMakeFiles/memfit_c.dir/flags.make
 CMakeFiles/memfit_c.dir/simulation.c.o: ../simulation.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/memfit_c.dir/simulation.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/simulation.c.o   -c /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/memfit_c.dir/simulation.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/simulation.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c
 
 CMakeFiles/memfit_c.dir/simulation.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/memfit_c.dir/simulation.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c > CMakeFiles/memfit_c.dir/simulation.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c > CMakeFiles/memfit_c.dir/simulation.c.i
 
 CMakeFiles/memfit_c.dir/simulation.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/memfit_c.dir/simulation.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c -o CMakeFiles/memfit_c.dir/simulation.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c -o CMakeFiles/memfit_c.dir/simulation.c.s
+
+CMakeFiles/memfit_c.dir/mainTest.c.o: CMakeFiles/memfit_c.dir/flags.make
+CMakeFiles/memfit_c.dir/mainTest.c.o: ../mainTest.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/memfit_c.dir/mainTest.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/memfit_c.dir/mainTest.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/mainTest.c
+
+CMakeFiles/memfit_c.dir/mainTest.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/memfit_c.dir/mainTest.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/mainTest.c > CMakeFiles/memfit_c.dir/mainTest.c.i
+
+CMakeFiles/memfit_c.dir/mainTest.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/memfit_c.dir/mainTest.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/mainTest.c -o CMakeFiles/memfit_c.dir/mainTest.c.s
 
 # Object files for target memfit_c
 memfit_c_OBJECTS = \
 "CMakeFiles/memfit_c.dir/block.c.o" \
 "CMakeFiles/memfit_c.dir/block_test.c.o" \
 "CMakeFiles/memfit_c.dir/main.c.o" \
-"CMakeFiles/memfit_c.dir/simulation.c.o"
+"CMakeFiles/memfit_c.dir/simulation.c.o" \
+"CMakeFiles/memfit_c.dir/mainTest.c.o"
 
 # External object files for target memfit_c
 memfit_c_EXTERNAL_OBJECTS =
@@ -123,9 +137,10 @@ memfit_c: CMakeFiles/memfit_c.dir/block.c.o
 memfit_c: CMakeFiles/memfit_c.dir/block_test.c.o
 memfit_c: CMakeFiles/memfit_c.dir/main.c.o
 memfit_c: CMakeFiles/memfit_c.dir/simulation.c.o
+memfit_c: CMakeFiles/memfit_c.dir/mainTest.c.o
 memfit_c: CMakeFiles/memfit_c.dir/build.make
 memfit_c: CMakeFiles/memfit_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable memfit_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable memfit_c"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/memfit_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +153,6 @@ CMakeFiles/memfit_c.dir/clean:
 .PHONY : CMakeFiles/memfit_c.dir/clean
 
 CMakeFiles/memfit_c.dir/depend:
-	cd /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug /Users/apple/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/memfit_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/memfit_c.dir/depend
 
