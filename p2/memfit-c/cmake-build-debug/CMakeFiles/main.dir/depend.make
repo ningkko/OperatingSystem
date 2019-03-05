@@ -6,6 +6,7 @@ CMakeFiles/main.dir/block.c.o: ../block.h
 
 CMakeFiles/main.dir/fits.c.o: ../block.h
 CMakeFiles/main.dir/fits.c.o: ../fits.c
+CMakeFiles/main.dir/fits.c.o: ../simulation.h
 
 CMakeFiles/main.dir/main.c.o: ../block.h
 CMakeFiles/main.dir/main.c.o: ../main.c

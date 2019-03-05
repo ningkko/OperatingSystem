@@ -62,6 +62,7 @@ int main(int argc, char *argv[]) {
         }
 
         // Handle our 3 commands:
+        //pool
         if (strcmp("pool", cmd) == 0) {
             int amt = 0;
             if (3 != sscanf(buffer, "%s %s %d", cmd, name, &amt)) {
@@ -75,8 +76,9 @@ int main(int argc, char *argv[]) {
             }
 
             simulation_start(&sim, name, amt);
-
-        } else if (strcmp("alloc", cmd) == 0) {
+        }
+        // alloc
+        else if (strcmp("alloc", cmd) == 0) {
             int amt = 0;
             if (3 != sscanf(buffer, "%s %s %d", cmd, name, &amt)) {
                 fprintf(stderr, "Bad alloc command: <\n\t%s\n>\n", buffer);
@@ -90,7 +92,9 @@ int main(int argc, char *argv[]) {
 
             simulation_alloc(&sim, name, amt);
 
-        } else if (strcmp("free", cmd) == 0) {
+        }
+        // free
+        else if (strcmp("free", cmd) == 0) {
             if (2 != sscanf(buffer, "%s %s", cmd, name)) {
                 fprintf(stderr, "Bad free command: <\n\t%s\n>\n", buffer);
                 return -8;
@@ -107,13 +111,13 @@ int main(int argc, char *argv[]) {
 
     fclose(input);
 
+    //print failed allocation times
+    printf("Total allocation failed: %d\n",sim.failed_alloction_num);
     // print memory used
     int totalCapacity = sim.free_list.capacity+sim.used_list.capacity;
     double use_percentage = sim.used_list.size/totalCapacity*100;
     double free_percentage = sim.free_list.size/totalCapacity*100;
     printf("Used memory: %.2f%%.\nFree memory: %.2f%%.", use_percentage, free_percentage);
-
-
 
     return 0;
 }

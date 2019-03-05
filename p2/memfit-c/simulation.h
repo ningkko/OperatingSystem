@@ -8,6 +8,7 @@ typedef struct {
     size_t pool_size;
     BlockList free_list;
     BlockList used_list;
+    int failed_alloction_num;
 } Simulation;
 
 void simulation_init(Simulation *sim);
