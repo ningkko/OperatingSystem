@@ -6,8 +6,6 @@
 #include <assert.h>
 #include <stdio.h>
 
-
-
 Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, size_t request_size){
     if(block->size < request_size){
         fprintf(stderr, "Cannot split. Request size is larger than the size of given block.");
@@ -75,7 +73,6 @@ Block* worst_fits(size_t request_size, BlockList* free_list, BlockList* used_lis
     int arrayCounter = 0;
     size_t curLargest = 0;
     int curLargestIndex = 0;
-    Block* a;
 
     while(a != NULL){
         if(a->size >= request_size){

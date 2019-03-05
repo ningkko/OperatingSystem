@@ -14,21 +14,17 @@ string.h
 stdbool.h
 -
 
-/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/mainTest.c
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c
 block.h
 /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.h
 simulation.h
 /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.h
-readFile.h
-/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/readFile.h
 assert.h
 -
 stdio.h
 -
 string.h
 -
-
-/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/readFile.h
 
 /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.h
 stdlib.h

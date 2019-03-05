@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/fits.c.o CMakeFiles/main.dir/block.c.o CMakeFiles/main.dir/simulation.c.o  -o main 

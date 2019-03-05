@@ -14,11 +14,6 @@ int fpeek(FILE *fp) {
     return what;
 }
 
-void print_memory_percentage(BlockList* free_list, BlockList* used_list){
-    double total = free_list->capacity+used_list->capacity;
-    printf("Used memory %02d%\nFree memory: %02d%", free_list->size/total,used_list->size/total);
-}
-
 int main(int argc, char *argv[]) {
     // Print usage:
     if (argc != 2) {
@@ -42,9 +37,6 @@ int main(int argc, char *argv[]) {
     char buffer[LINE_MAX_SIZE];
     char cmd[LINE_MAX_SIZE];
     char name[NAME_LEN];
-
-    // counts for the time allocation fails
-    int failed_allocs = 0;
 
     while(!feof(input)) {
         // Skip whitespace:
@@ -72,7 +64,7 @@ int main(int argc, char *argv[]) {
         // Handle our 3 commands:
         if (strcmp("pool", cmd) == 0) {
             int amt = 0;
-            if (2 != sscanf(buffer, "%s %s %d", cmd, name, &amt)) {
+            if (3 != sscanf(buffer, "%s %s %d", cmd, name, &amt)) {
                 fprintf(stderr, "Bad pool command: <\n\t%s\n>\n", buffer);
                 return -4;
             }
@@ -81,7 +73,9 @@ int main(int argc, char *argv[]) {
                 fprintf(stderr, "pool: can only allocate positive memory!\n");
                 return -5;
             }
+
             simulation_start(&sim, name, amt);
+
         } else if (strcmp("alloc", cmd) == 0) {
             int amt = 0;
             if (3 != sscanf(buffer, "%s %s %d", cmd, name, &amt)) {
@@ -93,34 +87,33 @@ int main(int argc, char *argv[]) {
                 fprintf(stderr, "alloc: can only allocate positive memory!\n");
                 return -7;
             }
+
             simulation_alloc(&sim, name, amt);
+
         } else if (strcmp("free", cmd) == 0) {
             if (2 != sscanf(buffer, "%s %s", cmd, name)) {
                 fprintf(stderr, "Bad free command: <\n\t%s\n>\n", buffer);
                 return -8;
             }
             printf("free(%s)\n", name);
+
             simulation_free(&sim, name);
+
         } else {
             fprintf(stderr, "Unknown command: <\n\t%s\n>\n", buffer);
             return -9;
         }
-
-
-        // print used and unused sections in offset order
-
-        // print failed allocs
-        printf("Done executing file.\nSummary: \nFailed allocation times: %02d", failed_allocs);
-
-        // usage of space
-        double total = sim.free_list.capacity+sim.used_list.capacity;
-        printf("Used memory %02d of the total memory\nFree memory: %02d of the total memoty",
-                sim.free_list.size/total,sim.free_list.size/total);
-
-
     }
 
     fclose(input);
+
+    // print memory used
+    int totalCapacity = sim.free_list.capacity+sim.used_list.capacity;
+    double use_percentage = sim.used_list.size/totalCapacity*100;
+    double free_percentage = sim.free_list.size/totalCapacity*100;
+    printf("Used memory: %.2f%%.\nFree memory: %.2f%%.", use_percentage, free_percentage);
+
+
 
     return 0;
 }

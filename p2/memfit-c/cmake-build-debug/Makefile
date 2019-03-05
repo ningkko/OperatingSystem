@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named memfit_c
+# Target rules for targets named main
 
 # Build rule for target.
-memfit_c: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 memfit_c
-.PHONY : memfit_c
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-memfit_c/fast:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/build
-.PHONY : memfit_c/fast
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 block.o: block.c.o
 
@@ -129,7 +129,7 @@ block.o: block.c.o
 
 # target to build an object file
 block.c.o:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/block.c.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/block.c.o
 .PHONY : block.c.o
 
 block.i: block.c.i
@@ -138,7 +138,7 @@ block.i: block.c.i
 
 # target to preprocess a source file
 block.c.i:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/block.c.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/block.c.i
 .PHONY : block.c.i
 
 block.s: block.c.s
@@ -147,35 +147,35 @@ block.s: block.c.s
 
 # target to generate assembly for a file
 block.c.s:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/block.c.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/block.c.s
 .PHONY : block.c.s
 
-block_test.o: block_test.c.o
+fits.o: fits.c.o
 
-.PHONY : block_test.o
+.PHONY : fits.o
 
 # target to build an object file
-block_test.c.o:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/block_test.c.o
-.PHONY : block_test.c.o
+fits.c.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/fits.c.o
+.PHONY : fits.c.o
 
-block_test.i: block_test.c.i
+fits.i: fits.c.i
 
-.PHONY : block_test.i
+.PHONY : fits.i
 
 # target to preprocess a source file
-block_test.c.i:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/block_test.c.i
-.PHONY : block_test.c.i
+fits.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/fits.c.i
+.PHONY : fits.c.i
 
-block_test.s: block_test.c.s
+fits.s: fits.c.s
 
-.PHONY : block_test.s
+.PHONY : fits.s
 
 # target to generate assembly for a file
-block_test.c.s:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/block_test.c.s
-.PHONY : block_test.c.s
+fits.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/fits.c.s
+.PHONY : fits.c.s
 
 main.o: main.c.o
 
@@ -183,7 +183,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/main.c.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -192,7 +192,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/main.c.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -201,35 +201,8 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/main.c.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.s
 .PHONY : main.c.s
-
-mainTest.o: mainTest.c.o
-
-.PHONY : mainTest.o
-
-# target to build an object file
-mainTest.c.o:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/mainTest.c.o
-.PHONY : mainTest.c.o
-
-mainTest.i: mainTest.c.i
-
-.PHONY : mainTest.i
-
-# target to preprocess a source file
-mainTest.c.i:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/mainTest.c.i
-.PHONY : mainTest.c.i
-
-mainTest.s: mainTest.c.s
-
-.PHONY : mainTest.s
-
-# target to generate assembly for a file
-mainTest.c.s:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/mainTest.c.s
-.PHONY : mainTest.c.s
 
 simulation.o: simulation.c.o
 
@@ -237,7 +210,7 @@ simulation.o: simulation.c.o
 
 # target to build an object file
 simulation.c.o:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/simulation.c.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/simulation.c.o
 .PHONY : simulation.c.o
 
 simulation.i: simulation.c.i
@@ -246,7 +219,7 @@ simulation.i: simulation.c.i
 
 # target to preprocess a source file
 simulation.c.i:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/simulation.c.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/simulation.c.i
 .PHONY : simulation.c.i
 
 simulation.s: simulation.c.s
@@ -255,7 +228,7 @@ simulation.s: simulation.c.s
 
 # target to generate assembly for a file
 simulation.c.s:
-	$(MAKE) -f CMakeFiles/memfit_c.dir/build.make CMakeFiles/memfit_c.dir/simulation.c.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/simulation.c.s
 .PHONY : simulation.c.s
 
 # Help Target
@@ -266,19 +239,16 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... memfit_c"
+	@echo "... main"
 	@echo "... block.o"
 	@echo "... block.i"
 	@echo "... block.s"
-	@echo "... block_test.o"
-	@echo "... block_test.i"
-	@echo "... block_test.s"
+	@echo "... fits.o"
+	@echo "... fits.i"
+	@echo "... fits.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... mainTest.o"
-	@echo "... mainTest.i"
-	@echo "... mainTest.s"
 	@echo "... simulation.o"
 	@echo "... simulation.i"
 	@echo "... simulation.s"

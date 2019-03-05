@@ -1,5 +1,0 @@
-pool first 1000
-alloc A 200
-alloc B 300
-alloc C 100
-free B

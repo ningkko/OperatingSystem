@@ -32,4 +32,3 @@ void simulation_free(Simulation *sim, const char* name) {
     assert(found != NULL);
     list_push(&sim->free_list, found);
 }
-
