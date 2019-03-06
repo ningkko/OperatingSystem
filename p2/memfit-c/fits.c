@@ -7,6 +7,8 @@
 #include <assert.h>
 #include <stdio.h>
 
+// sim and free list, used list?
+// next fit?
 Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, size_t request_size){
     if(block->size < request_size){
         fprintf(stderr, "Cannot split. Request size is larger than the size of given block.");
@@ -17,17 +19,24 @@ Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, siz
         return block;
     }
     else{
-        //TODO: offset???
         Block* newBlockForUsed = block_new(block->name, request_size);
-        Block* newBlockForFree = block_new(block->name, (block->size) - (request_size));
+        Block* newBlockForFree = block_new("", (block->size) - (request_size));
+        // assign new offset
+        newBlockForUsed->offset = block->offset;
+        newBlockForFree->offset = block->offset+request_size;
+
+        list_remove(free_list,block);
         list_push(used_list, newBlockForUsed);
         list_push(free_list, newBlockForFree);
-        list_remove(free_list,block);
+
         return newBlockForUsed;
     }
 }
 
-Block* find_first(Simulation *sim, int request_size, BlockList* free_list, BlockList* used_list){
+Block* first_fits(Simulation* sim, int request_size){
+
+    BlockList* free_list = &(sim->free_list);
+    BlockList* used_list = &(sim->used_list);
     size_t size = free_list->size;
     int curIndex = 0;
     Block* a = list_get(free_list, curIndex);
@@ -41,12 +50,14 @@ Block* find_first(Simulation *sim, int request_size, BlockList* free_list, Block
             a = list_get(free_list, curIndex);
         }
     }
-    sim->failed_alloction_num+=1;
+    sim->failed_allocation_num+=1;
     return NULL;
 }
 
-Block* random_fits(Simulation *sim,size_t request_size, BlockList* free_list, BlockList* used_list){
+Block* random_fits(Simulation* sim,size_t request_size){
 
+    BlockList* free_list = &(sim->free_list);
+    BlockList* used_list = &(sim->used_list);
     srand(time(NULL));
     int index;
     size_t size = free_list->size;
@@ -64,13 +75,16 @@ Block* random_fits(Simulation *sim,size_t request_size, BlockList* free_list, Bl
         }
     }
 
-    sim->failed_alloction_num+=1;
+    sim->failed_allocation_num+=1;
     return NULL;
 }
 
 
-Block* worst_fits(Simulation *sim, size_t request_size, BlockList* free_list, BlockList* used_list){
+Block* worst_fits(Simulation* sim, size_t request_size){
     //TODO: is this the correct way to have a list of name ptr?
+
+    BlockList* free_list = &(sim->free_list);
+    BlockList* used_list = &(sim->used_list);
     char* avaliableIndexes[free_list->size];
     size_t sizes[free_list->size];
     size_t curIndex = 0;
@@ -106,14 +120,17 @@ Block* worst_fits(Simulation *sim, size_t request_size, BlockList* free_list, Bl
         return block_split(free_list, used_list, a, request_size);
     }
 
-    sim->failed_alloction_num+=1;
+    sim->failed_allocation_num+=1;
     fprintf(stderr, "All sizes of blocks inside the free_list are too small to fit in.");
     return NULL;
 }
 
 
 
-Block* best_fits(Simulation *sim, size_t request_size, BlockList* free_list, BlockList* used_list){
+Block* best_fits(Simulation* sim, size_t request_size){
+
+    BlockList* free_list = &(sim->free_list);
+    BlockList* used_list = &(sim->used_list);
     //TODO: is this the correct way to have a list of name ptr?
     char* avaliableIndexes[free_list->size];
     size_t sizes[free_list->size];
@@ -150,7 +167,7 @@ Block* best_fits(Simulation *sim, size_t request_size, BlockList* free_list, Blo
         return block_split(free_list, used_list, a, request_size);
     }
 
-    sim->failed_alloction_num+=1;
+    sim->failed_allocation_num+=1;
     fprintf(stderr, "All sizes of blocks inside the free_list are too small to fit in.");
     return NULL;
 }

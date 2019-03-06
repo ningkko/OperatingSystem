@@ -74,7 +74,6 @@ int main(int argc, char *argv[]) {
                 fprintf(stderr, "pool: can only allocate positive memory!\n");
                 return -5;
             }
-
             simulation_start(&sim, name, amt);
         }
         // alloc
@@ -112,7 +111,7 @@ int main(int argc, char *argv[]) {
     fclose(input);
 
     //print failed allocation times
-    printf("Total allocation failed: %d\n",sim.failed_alloction_num);
+    printf("Total allocation failed: %d\n",sim.failed_allocation_num);
     // print memory used
     int totalCapacity = sim.free_list.capacity+sim.used_list.capacity;
     double use_percentage = sim.used_list.size/totalCapacity*100;

@@ -11,9 +11,9 @@
 
 //fit methods
 Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, size_t request_size);
-Block* find_first(int request_size, BlockList* free_list, BlockList* used_list);
-Block* random_fits(size_t request_size, BlockList* free_list, BlockList* used_list);
-Block* worst_fits(size_t request_size, BlockList* free_list, BlockList* used_list);
-Block* best_fits(size_t request_size, BlockList* free_list, BlockList* used_list);
+Block* first_fits(Simulation* sim, int request_size);
+Block* random_fits(Simulation* sim, size_t request_size);
+Block* worst_fits(Simulation* sim, size_t request_size);
+Block* best_fits(Simulation* sim, size_t request_size);
 
 #endif //PA2MINE_FITS_H

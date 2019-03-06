@@ -13,6 +13,7 @@ CMakeFiles/main.dir/main.c.o: ../main.c
 CMakeFiles/main.dir/main.c.o: ../simulation.h
 
 CMakeFiles/main.dir/simulation.c.o: ../block.h
+CMakeFiles/main.dir/simulation.c.o: ../fits.h
 CMakeFiles/main.dir/simulation.c.o: ../simulation.c
 CMakeFiles/main.dir/simulation.c.o: ../simulation.h
 
