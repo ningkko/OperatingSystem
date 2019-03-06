@@ -7,6 +7,8 @@ void simulation_init(Simulation *sim) {
     list_init(&sim->free_list);
     list_init(&sim->used_list);
     sim->pool_size = 0;
+    sim->prevIndex = 0;
+    sim->failed_allocation_num = 0;
 }
 
 void simulation_start(Simulation *sim, const char* strategy, size_t pool_size) {
@@ -42,8 +44,8 @@ void simulation_alloc(Simulation *sim, const char* name, size_t amount) {
     assert(sim != NULL);
 
     if (sim->algorithm==1){
-        Block* block = first_fits( sim, amount);
-        list_push(&sim->used_list, block);
+        Block* block = first_fits( sim, name, amount);
+        //list_push(&sim->used_list, block);
     }
     else if (sim->algorithm==2){
         Block* block = random_fits( sim, amount);
@@ -91,7 +93,6 @@ void simulation_merge_neighbors(Simulation *sim, size_t position) {
     // check current and next
     if(position+1<list->size){
         Block* next_block = list->array[position+1];
-        //todo only integer allocations?
         if (current_block->offset+current_block->size==next_block->offset-1){
             simulation_merge(sim, current_block,next_block);
         }

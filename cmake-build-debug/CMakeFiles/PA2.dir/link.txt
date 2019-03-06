@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/PA2.dir/p2/memfit-c/block.c.o CMakeFiles/PA2.dir/p2/memfit-c/fits.c.o CMakeFiles/PA2.dir/p2/memfit-c/main.c.o CMakeFiles/PA2.dir/p2/memfit-c/simulation.c.o  -o PA2 

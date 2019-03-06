@@ -22,6 +22,7 @@ typedef struct {
 // Block methods
 void block_init(Block* b, const char* name, size_t size);
 Block* block_new(const char* name, size_t size);
+void block_set_name(Block* b, const char* name);
 
 // BlockList methods.
 void list_init(BlockList* list);

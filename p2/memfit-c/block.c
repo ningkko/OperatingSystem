@@ -34,8 +34,12 @@ static size_t max(size_t a, size_t b) {
 }
 
 void block_init(Block* b, const char* name, size_t size) {
-    memset(b->name, 0, NAME_LEN+1);
     b->size = size;
+    block_set_name(b, name);
+}
+
+void block_set_name(Block* b, const char* name) {
+    memset(b->name, 0, NAME_LEN+1);
     for (size_t i=0; i<NAME_LEN; i++) {
         if (name[i] != '\0') {
             b->name[i] = name[i];
@@ -125,17 +129,19 @@ Block* list_remove_given_block(BlockList* list, Block* block){
 
 void list_sort(BlockList* list, bool increasing) {
     if (increasing) {
-        qsort(&list->array[0], list->size, sizeof(void*), &by_size_increasing);
+        qsort(&list->array[0], list->size, sizeof(Block*), &by_size_increasing);
     } else {
-        qsort(&list->array[0], list->size, sizeof(void*), &by_size_decreasing);
+        qsort(&list->array[0], list->size, sizeof(Block*), &by_size_decreasing);
     }
 }
 
 BlockList* list_sort_by_offset(BlockList* list){
-
-    //TODO Does this change the variable list?
-    BlockList list_copy = *list;
-    //TODO What's the third argument?
-    qsort(list_copy.array[0],list_copy.size, sizeof(void*), &by_offset_increasing);
-    return &list_copy;
+    // Make a copy of the list:
+    BlockList *copy = malloc(sizeof(BlockList));
+    list_init(copy);
+    for (int i=0; i<list->size; i++) {
+        list_push(copy, list_get(list, i));
+    }
+    qsort(copy.array[0],copy.size, sizeof(Block*), &by_offset_increasing);
+    return copy;
 }

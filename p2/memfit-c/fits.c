@@ -7,23 +7,18 @@
 #include <assert.h>
 #include <stdio.h>
 
-// sim and free list, used list?
-// next fit?
-
-//TODO:Legal to keep a global variable in this file?
-int prevIndex = NULL;
-
-Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, size_t request_size, int index){
+Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, char* name, size_t request_size, int index){
     if(block->size < request_size){
         fprintf(stderr, "Cannot split. Request size is larger than the size of given block.");
     }
     else if(block->size == request_size){
         list_remove(free_list, index);
         list_push(used_list, block);
+        block_set_name(block, name);
         return block;
     }
     else{
-        Block* newBlockForUsed = block_new(block->name, request_size);
+        Block* newBlockForUsed = block_new(name, request_size);
         Block* newBlockForFree = block_new("", (block->size) - (request_size));
         // assign new offset
         newBlockForUsed->offset = block->offset;
@@ -37,31 +32,30 @@ Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, siz
     }
 }
 
-Block* first_fits(Simulation* sim, int request_size){
+Block* first_fits(Simulation* sim, char* name, int request_size){
 
     BlockList* free_list = &(sim->free_list);
     BlockList* used_list = &(sim->used_list);
     size_t size = free_list->size;
     int curIndex = 0;
-    Block* a = list_get(free_list, curIndex);
     int counter = 0;
 
     while( counter < size){
+        Block *a = list_get(free_list, curIndex);
+
         counter += 1;
         if(a->size >= request_size){
-            prevIndex = curIndex;
-            return block_split(free_list, used_list, a, request_size,curIndex);
+            return block_split(free_list, used_list, a, name, request_size, curIndex);
         }
         else{
             curIndex += 1;
-            a = list_get(free_list, curIndex);
         }
     }
     sim->failed_allocation_num+=1;
     return NULL;
 }
 
-Block* random_fits(Simulation* sim,size_t request_size){
+Block* random_fits(Simulation* sim,char* name, size_t request_size){
 
     BlockList* free_list = &(sim->free_list);
     BlockList* used_list = &(sim->used_list);
@@ -76,8 +70,7 @@ Block* random_fits(Simulation* sim,size_t request_size){
     while(counter < size){
         counter += 1;
         if(a->size >= request_size){
-            prevIndex = index;
-            return block_split(free_list, used_list, a, request_size,index);
+            return block_split(free_list, used_list, a, name, request_size,index);
         }
         else{
             index = rand()%size;
@@ -90,7 +83,7 @@ Block* random_fits(Simulation* sim,size_t request_size){
 }
 
 
-Block* worst_fits(Simulation* sim, size_t request_size){
+Block* worst_fits(Simulation* sim, char* name,size_t request_size){
     BlockList* free_list = &(sim->free_list);
     BlockList* used_list = &(sim->used_list);
     int availableIndexes[free_list->size];
@@ -127,8 +120,7 @@ Block* worst_fits(Simulation* sim, size_t request_size){
 
     a = list_get(free_list, availableIndexes[curLargestIndex]);
     if(a!=NULL){
-        prevIndex = availableIndexes[curLargestIndex];
-        return block_split(free_list, used_list, a, request_size,prevIndex);
+        return block_split(free_list, used_list, a, name, request_size,availableIndexes[curLargestIndex]);
     }
 
     sim->failed_allocation_num+=1;
@@ -138,7 +130,7 @@ Block* worst_fits(Simulation* sim, size_t request_size){
 
 
 
-Block* best_fits(Simulation* sim, size_t request_size){
+Block* best_fits(Simulation* sim, char* name,size_t request_size){
 
     BlockList* free_list = &(sim->free_list);
     BlockList* used_list = &(sim->used_list);
@@ -176,8 +168,8 @@ Block* best_fits(Simulation* sim, size_t request_size){
 
     a = list_get(free_list, availableIndexes[curBestIndex]);
     if(a != NULL){
-        prevIndex = availableIndexes[curBestIndex];
-        return block_split(free_list, used_list, a, request_size, prevIndex);
+        sim->prevIndex = availableIndexes[curBestIndex];
+        return block_split(free_list, used_list, a, name, request_size, sim->prevIndex);
     }
 
     sim->failed_allocation_num+=1;
@@ -185,18 +177,18 @@ Block* best_fits(Simulation* sim, size_t request_size){
     return NULL;
 }
 
-Block* next_fits(Simulation* sim, int request_size){
+Block* next_fits(Simulation* sim, char* name, int request_size){
     BlockList* free_list = &(sim->free_list);
     BlockList* used_list = &(sim->used_list);
     size_t size = free_list->size;
 
+
     for(int i = 0; i < size; i++){
-        int wrap = (i+prevIndex)%(free_list->size);
+        int wrap = (i+sim->prevIndex)%(free_list->size);
         Block* b = list_get(free_list, wrap);
         if(b->size >= request_size){
-            //TODO: do not understand why we need +1 here
-            prevIndex = wrap;
-            return block_split(free_list, used_list, b, request_size,wrap);
+            sim->prevIndex = wrap;
+            return block_split(free_list, used_list, b, name, request_size,wrap);
         }
     }
     sim->failed_allocation_num+=1;

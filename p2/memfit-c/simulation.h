@@ -10,6 +10,7 @@ typedef struct {
     BlockList used_list;
     int failed_allocation_num;
     int algorithm;
+    int prevIndex;
 } Simulation;
 
 void simulation_init(Simulation *sim);
