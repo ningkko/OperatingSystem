@@ -15,5 +15,6 @@ Block* first_fits(Simulation* sim, int request_size);
 Block* random_fits(Simulation* sim, size_t request_size);
 Block* worst_fits(Simulation* sim, size_t request_size);
 Block* best_fits(Simulation* sim, size_t request_size);
+Block* next_fits(Simulation* sim, size_t request_size);
 
 #endif //PA2MINE_FITS_H

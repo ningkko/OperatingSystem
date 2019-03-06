@@ -11,12 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31db7865-a576-4ded-8a84-a9fb2c42e15b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/block.c" beforeDir="false" afterPath="$PROJECT_DIR$/block.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block.h" beforeDir="false" afterPath="$PROJECT_DIR$/block.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/simulation.c" afterDir="false" />
-    </list>
+    <list default="true" id="31db7865-a576-4ded-8a84-a9fb2c42e15b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-284">
-              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -216,12 +211,12 @@
       <workItem from="1551748121329" duration="2605000" />
       <workItem from="1551795583253" duration="2822000" />
       <workItem from="1551810381319" duration="198000" />
-      <workItem from="1551810609929" duration="13691000" />
+      <workItem from="1551810609929" duration="13881000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22121000" />
+    <option name="totallyTimeSpent" value="22311000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="790" extended-state="6" />
@@ -232,7 +227,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295129" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.48710603" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.48710603" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -338,8 +333,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-284">
-          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
