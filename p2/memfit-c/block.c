@@ -110,6 +110,19 @@ Block* list_remove(BlockList* list, size_t i) {
     return retv;
 }
 
+Block* list_remove_given_block(BlockList* list, Block* block){
+
+    for (int i = 0; i < list->size; ++i) {
+        Block* b = list->array[i];
+        if (b == block){
+            Block* retv = list_remove(list, (size_t) i);
+            return retv;
+        }
+    }
+    return NULL;
+}
+
+
 void list_sort(BlockList* list, bool increasing) {
     if (increasing) {
         qsort(&list->array[0], list->size, sizeof(void*), &by_size_increasing);
@@ -119,7 +132,10 @@ void list_sort(BlockList* list, bool increasing) {
 }
 
 BlockList* list_sort_by_offset(BlockList* list){
+
+    //TODO Does this change the variable list?
     BlockList list_copy = *list;
+    //TODO What's the third argument?
     qsort(list_copy.array[0],list_copy.size, sizeof(void*), &by_offset_increasing);
     return &list_copy;
 }

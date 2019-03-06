@@ -10,7 +10,7 @@
 #include <stdio.h>
 
 //fit methods
-Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, size_t request_size);
+Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, size_t request_size, int index);
 Block* first_fits(Simulation* sim, int request_size);
 Block* random_fits(Simulation* sim, size_t request_size);
 Block* worst_fits(Simulation* sim, size_t request_size);

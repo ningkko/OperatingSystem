@@ -19,7 +19,7 @@ void simulation_start(Simulation *sim, const char* strategy, size_t pool_size) {
     // label its offset.
     starterBlock->offset=0;
     starterBlock->size = pool_size;
-    list_push(&sim->free_list, block_new("Pool", starterBlock));
+    list_push(&sim->free_list,starterBlock);
 
     if (strcmp("first", strategy) == 1) {
         sim->algorithm = 1;
@@ -30,8 +30,11 @@ void simulation_start(Simulation *sim, const char* strategy, size_t pool_size) {
     else if (strcmp("worst", strategy) == 2) {
         sim->algorithm = 3;
     }
-    else if (strcmp("best", strategy) == 1) {
+    else if (strcmp("best", strategy) == 3) {
         sim->algorithm = 4;
+    }
+    else if (strcmp("next", strategy) == 4){
+        sim->algorithm = 5;
     }
 }
 
@@ -57,6 +60,10 @@ void simulation_alloc(Simulation *sim, const char* name, size_t amount) {
         list_push(&sim->used_list, block);
     }
 
+    else if (sim->algorithm==5){
+        Block* block = next_fits( sim, amount);
+        list_push(&sim->used_list, block);
+    }
 }
 
 void simulation_free(Simulation *sim, const char* name) {
@@ -84,7 +91,8 @@ void simulation_merge_neighbors(Simulation *sim, size_t position) {
     // check current and next
     if(position+1<list->size){
         Block* next_block = list->array[position+1];
-        if (current_block->offset+current_block->size==next_block->offset){
+        //todo only integer allocations?
+        if (current_block->offset+current_block->size==next_block->offset-1){
             simulation_merge(sim, current_block,next_block);
         }
     }
@@ -92,19 +100,35 @@ void simulation_merge_neighbors(Simulation *sim, size_t position) {
     // check current and next
     if(position-1>=0){
         Block* previous_block = list->array[position-1];
-        if (previous_block->offset+previous_block->size == current_block->offset){
+        if (previous_block->offset+previous_block->size == current_block->offset-1){
             simulation_merge(sim, previous_block,current_block);
         }
     }
 }
 
-void simulation_merge(Simulation *sim, Block *first_block, Block *second_bock){
+void simulation_merge(Simulation *sim, Block *first_block, Block *second_block){
 
-    int size = first_block->size+second_bock->size;
+    size_t size = first_block->size+second_block->size;
     Block *newBlock = block_new("",size);
     newBlock->offset = first_block->offset;
-    list_remove(first_block,second_bock);
+
+    list_remove_given_block(&sim->free_list,first_block);
+    list_remove_given_block(&sim->free_list,second_block);
+
     list_push(&sim->free_list,newBlock);
+}
+
+void simulation_memory_usage_report(Simulation *sim){
+    int totalCapacity = (int) &sim->free_list.capacity + (int) &sim->used_list.capacity;
+
+    int used_size =0;
+    for (int i = 0; i < sim->used_list.size; ++i) {
+        used_size+=sim->free_list.array[i]->size;
+    }
+    double used_percentage = (double)used_size/totalCapacity*100;
+    double free_percentage = ((double)(totalCapacity-used_size))/totalCapacity*100;
+    printf("Used memory: %.2f%%.\nFree memory: %.2f%%.\n", used_percentage, free_percentage);
+
 }
 
 

@@ -23,9 +23,11 @@ void print_list_by_offset(Simulation *sim){
                 i, sorted_free_list->array[i]->offset, sorted_free_list->array[i]->size);
     }
 
+
+    //TODO: Why no used list printed?
     printf("Used list sections sorted by offset: \n");
     BlockList* sorted_used_list = list_sort_by_offset(&(sim->used_list));
-    for (int i = 0; i < sorted_free_list->size; ++i) {
+    for (int i = 0; i < sorted_used_list->size; ++i) {
         printf("%c: Offset: %d; Size: %d.\n",
                sorted_used_list->array[i]->name, sorted_used_list->array[i]->offset, sorted_used_list->array[i]->size);
     }
@@ -132,11 +134,8 @@ int main(int argc, char *argv[]) {
     printf("Total allocation failed: %d\n",sim.failed_allocation_num);
 
     // print memory used
-    int totalCapacity = sim.free_list.capacity+sim.used_list.capacity;
-    double use_percentage = sim.used_list.size/totalCapacity*100;
-    double free_percentage = sim.free_list.size/totalCapacity*100;
-    printf("Used memory: %.2f%%.\nFree memory: %.2f%%.", use_percentage, free_percentage);
 
+    simulation_memory_usage_report(&sim);
     //print section list in offset order
     print_list_by_offset(&sim);
     return 0;

@@ -32,6 +32,7 @@ Block* list_get(BlockList* list, size_t i);
 Block* list_remove(BlockList* list, size_t i);
 void list_sort(BlockList* list, bool increasing);
 BlockList* list_sort_by_offset(BlockList* list);
+Block* list_remove_given_block(BlockList* list, Block* block);
 
 
 #endif // __BLOCK_H
