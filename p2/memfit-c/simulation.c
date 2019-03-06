@@ -105,5 +105,6 @@ void simulation_merge(Simulation *sim, Block *first_block, Block *second_bock){
     newBlock->offset = first_block->offset;
     list_remove(first_block,second_bock);
     list_push(&sim->free_list,newBlock);
-
 }
+
+

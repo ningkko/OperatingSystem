@@ -19,6 +19,15 @@ int by_size_decreasing(const void* block_lhs, const void* block_rhs) {
     return by_size_increasing(block_rhs, block_lhs);
 }
 
+int by_offset_increasing(const void* block_lhs, const void* block_rhs){
+    Block* lhs = *((Block**) block_lhs);
+    Block* rhs = *((Block**) block_rhs);
+    assert(lhs != NULL);
+    assert(rhs != NULL);
+
+    return (int) lhs->offset - (int) rhs->offset;
+}
+
 // for resizing.
 static size_t max(size_t a, size_t b) {
     return (a > b) ? a : b;
@@ -107,4 +116,10 @@ void list_sort(BlockList* list, bool increasing) {
     } else {
         qsort(&list->array[0], list->size, sizeof(void*), &by_size_decreasing);
     }
+}
+
+BlockList* list_sort_by_offset(BlockList* list){
+    BlockList list_copy = *list;
+    qsort(list_copy.array[0],list_copy.size, sizeof(void*), &by_offset_increasing);
+    return &list_copy;
 }
