@@ -1,6 +1,6 @@
 SHELL:=/bin/bash
 CC:=clang
-CFLAGS:=-Wall -Werror -Wextra -std=c99 -Wshadow -Wno-unused-parameter -Wno-unused-variable -g
+CFLAGS:=-Wall -Wextra -std=c99 -Wshadow -Wno-unused-parameter -Wno-unused-variable -g
 LFLAGS:=-lm
 PROGRAM:=memfit
 DEBUGGER:=gdb
@@ -8,7 +8,7 @@ DEBUGGER:=gdb
 %.o: %.c
 	${CC} -c $^ -o $@ ${CFLAGS}
 
-${PROGRAM}: main.o block.o simulation.o
+${PROGRAM}: main.o block.o simulation.o fits.o
 	${CC} ${LFLAGS} -o $@ $^
 
 block_test: block_test.o block.o

@@ -95,6 +95,9 @@ int main(int argc, char *argv[]) {
                 return -5;
             }
             simulation_start(&sim, name, amt);
+            printf("free capacity: %d\n",(int) sim.free_list.capacity);
+            printf("used capacity: %d\n\n",(int) sim.used_list.capacity);
+
         }
         // alloc
         else if (strcmp("alloc", cmd) == 0) {
@@ -135,21 +138,43 @@ int main(int argc, char *argv[]) {
 
     // print memory used
 
-    simulation_memory_usage_report(&sim);
+    //simulation_memory_usage_report(&sim);
     //print section list in offset order
    // print_list_by_offset(&sim);
 
-    printf("\n\n===========================\n"
-           "Test: What's in sim?\nFree list:\n");
+    int totalUsedSize=0;
+    int totalFreeSize=0;
 
-    for (int i = 0; i < sim.free_list.size; ++i) {
-        printf("Offset: %d, Size: %d\n",(int)sim.free_list.array[i]->offset,(int) sim.free_list.array[i]->size);
-    }
-    printf("Used list:\n");
+    printf("\n\n"
+           "========= Storage Report ========\n");
 
+    printf("**Used list:\n");
     for (int i = 0; i < sim.used_list.size; ++i) {
-        printf("%s\n",sim.used_list.array[i]->name);
+        printf("Name: %s, offset: %i, size: %i\n",
+                sim.used_list.array[i]->name,
+               (int) sim.used_list.array[i]->offset,
+               (int) sim.used_list.array[i]->size);
+        totalUsedSize+=(int) sim.used_list.array[i]->size;
     }
+
+    printf("**Free list:\n");
+    for (int i = 0; i < sim.free_list.size; ++i) {
+        printf("Name: %s, offset: %i, size: %i\n",
+               sim.free_list.array[i]->name,
+               (int) sim.free_list.array[i]->offset,
+               (int) sim.free_list.array[i]->size);
+    }
+
+    int totalSize =totalUsedSize+totalFreeSize;
+
+    printf("\n====== Memory usage report ======\n"
+           "Total size:%i\nTotal used size: %i\nTotal free size: %i\n",
+           totalSize,totalUsedSize,totalFreeSize);
+
+    double used_percentage = (double) totalUsedSize/totalSize*100;
+    double free_percentage = (double) totalFreeSize/totalSize*100;
+    printf("Used memory percentage: %.2f%%.\nFree memory percentage: %.2f%%.\n", used_percentage, free_percentage);
+
 
     return 0;
 }

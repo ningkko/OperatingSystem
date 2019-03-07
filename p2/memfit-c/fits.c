@@ -19,7 +19,7 @@ Block* block_split(BlockList* free_list, BlockList* used_list, Block* block, cha
     }
     else{
         Block* newBlockForUsed = block_new(name, request_size);
-        Block* newBlockForFree = block_new("", (block->size) - (request_size));
+        Block* newBlockForFree = block_new(name, (block->size) - (request_size));
         // assign new offset
         newBlockForUsed->offset = block->offset;
         newBlockForFree->offset = block->offset+request_size;

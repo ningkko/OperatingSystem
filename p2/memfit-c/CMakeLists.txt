@@ -1,1 +1,1 @@
-add_executable(main "main.c" "fits.c" "block.c" "simulation.c")
+add_executable(main "main.c" "fits.c" "block.c" "simulation.c" "simulation.h" "fits.h" "block.h")

@@ -19,5 +19,4 @@ void simulation_alloc(Simulation *sim, const char* name, size_t amount);
 void simulation_free(Simulation *sim, const char* name);
 void simulation_merge_neighbors(Simulation *sim, size_t position);
 void simulation_merge(Simulation *sim,Block *first_block, Block *second_bock);
-void simulation_memory_usage_report(Simulation *sim);
 #endif // __SIMULATION_H
