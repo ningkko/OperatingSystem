@@ -2,6 +2,7 @@
 #include "fits.h"
 #include <assert.h>
 #include <stdio.h>
+#include <gmpxx.h>
 
 void simulation_init(Simulation *sim) {
     list_init(&sim->free_list);
@@ -77,7 +78,9 @@ void simulation_free(Simulation *sim, const char* name) {
     Block* found = list_remove(&sim->used_list, (size_t) position);
     assert(found != NULL);
     list_push(&sim->free_list, found);
-    //simulation_merge_neighbors(&sim->free_list,(size_t) position);
+
+    ssize_t new_position = list_find(&sim->free_list, name);
+    simulation_merge_neighbors(sim,(size_t) new_position);
 }
 
 void simulation_merge_neighbors(Simulation *sim, size_t position) {
@@ -87,7 +90,6 @@ void simulation_merge_neighbors(Simulation *sim, size_t position) {
     if(list->size==0||list->size==1){
         return;
     }
-
     // somewhere before here, you accidentally made list->array = 2
     Block* current_block = list->array[position];
 
@@ -111,7 +113,7 @@ void simulation_merge_neighbors(Simulation *sim, size_t position) {
 void simulation_merge(Simulation *sim, Block *first_block, Block *second_block){
 
     size_t size = first_block->size+second_block->size;
-    Block *newBlock = block_new("",size);
+    Block *newBlock = block_new(first_block->name,size);
     newBlock->offset = first_block->offset;
 
     list_remove_given_block(&sim->free_list,first_block);

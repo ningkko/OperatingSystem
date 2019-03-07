@@ -9,3 +9,4 @@ alloc F 200
 free D
 alloc G 100
 alloc H 100
+free C
