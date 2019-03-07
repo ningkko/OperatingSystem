@@ -14,26 +14,6 @@ int fpeek(FILE *fp) {
     return what;
 }
 
-void print_list_by_offset(Simulation *sim){
-
-    printf("Free list sections sorted by offset: \n");
-    BlockList* sorted_free_list = list_sort_by_offset(&(sim->free_list));
-    for (int i = 0; i < sorted_free_list->size; ++i) {
-        printf("No.%d: Offset: %d; Size: %d.\n",
-                i, (int) sorted_free_list->array[i]->offset, (int) sorted_free_list->array[i]->size);
-    }
-
-
-    //TODO: Why no used list printed?
-    printf("Used list sections sorted by offset: \n");
-    BlockList* sorted_used_list = list_sort_by_offset(&(sim->used_list));
-    for (int i = 0; i < sorted_used_list->size; ++i) {
-        printf("%s: Offset: %d; Size: %d.\n",
-                sorted_used_list->array[i]->name, (int) sorted_used_list->array[i]->offset, (int) sorted_used_list->array[i]->size);
-    }
-
-}
-
 int main(int argc, char *argv[]) {
     // Print usage:
     if (argc != 2) {
@@ -134,18 +114,15 @@ int main(int argc, char *argv[]) {
     fclose(input);
 
     //print failed allocation times
-    printf("Total allocation failed: %d\n",sim.failed_allocation_num);
+    printf("\nTotal allocation failed: %d\n",sim.failed_allocation_num);
 
-    // print memory used
-
-    //simulation_memory_usage_report(&sim);
-    //print section list in offset order
-   // print_list_by_offset(&sim);
+    list_sort_by_offset(&(sim.free_list));
+    list_sort_by_offset(&(sim.used_list));
 
     int totalUsedSize=0;
     int totalFreeSize=0;
 
-    printf("\n\n"
+    printf("\n"
            "========= Storage Report ========\n");
 
     printf("**Used list:\n");
@@ -163,6 +140,7 @@ int main(int argc, char *argv[]) {
                sim.free_list.array[i]->name,
                (int) sim.free_list.array[i]->offset,
                (int) sim.free_list.array[i]->size);
+        totalFreeSize+=(int) sim.free_list.array[i]->size;
     }
 
     int totalSize =totalUsedSize+totalFreeSize;

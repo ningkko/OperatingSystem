@@ -38,7 +38,6 @@ void simulation_start(Simulation *sim, const char* strategy, size_t pool_size) {
     else if (strcmp("next", strategy) == 0){
         sim->algorithm = 5;
     }
-    printf("sim->algorithm: %d\n", sim->algorithm);
 }
 
 void simulation_alloc(Simulation *sim, const char* name, size_t amount) {
@@ -47,6 +46,7 @@ void simulation_alloc(Simulation *sim, const char* name, size_t amount) {
     if (sim->algorithm==1){
         Block* block = first_fits( sim, name, amount);
     }
+
     else if (sim->algorithm==2){
         Block* block = random_fits( sim, name, amount);
     }

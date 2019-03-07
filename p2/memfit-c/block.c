@@ -19,7 +19,7 @@ int by_size_decreasing(const void* block_lhs, const void* block_rhs) {
     return by_size_increasing(block_rhs, block_lhs);
 }
 
-int by_offset_increasing(const void* block_lhs, const void* block_rhs){
+int by_offset_increasing(const void* block_lhs, const void* block_rhs) {
     Block* lhs = *((Block**) block_lhs);
     Block* rhs = *((Block**) block_rhs);
     assert(lhs != NULL);
@@ -85,7 +85,6 @@ void list_push(BlockList* list, Block *block) {
         list_grow(list);
     }
     assert(list->size <= list->capacity);
-    printf("list_push: %s\n", block->name);
     list->array[list->size++] = block;
 }
 
@@ -136,15 +135,6 @@ void list_sort(BlockList* list, bool increasing) {
     }
 }
 
-BlockList* list_sort_by_offset(BlockList* list){
-    // Make a copy of the list:
-    BlockList *copy = malloc(sizeof(BlockList));
-    printf("here");
-    printf(copy);
-    list_init(copy);
-    for (int i=0; i<list->size; i++) {
-        list_push(copy, list_get(list, i));
-    }
-    qsort(copy->array[0],copy->size, sizeof(Block*), &by_offset_increasing);
-    return copy;
+void list_sort_by_offset(BlockList* list) {
+    qsort(&list->array[0], list->size, sizeof(Block*), &by_offset_increasing);
 }
