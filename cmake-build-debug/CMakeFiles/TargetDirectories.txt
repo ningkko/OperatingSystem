@@ -1,3 +1,0 @@
-/Users/wangyilin/Desktop/OperatingSystem/PA2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/wangyilin/Desktop/OperatingSystem/PA2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/wangyilin/Desktop/OperatingSystem/PA2/cmake-build-debug/CMakeFiles/PA2.dir
