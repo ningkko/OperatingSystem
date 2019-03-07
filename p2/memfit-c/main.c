@@ -20,7 +20,7 @@ void print_list_by_offset(Simulation *sim){
     BlockList* sorted_free_list = list_sort_by_offset(&(sim->free_list));
     for (int i = 0; i < sorted_free_list->size; ++i) {
         printf("No.%d: Offset: %d; Size: %d.\n",
-                i, sorted_free_list->array[i]->offset, sorted_free_list->array[i]->size);
+                i, (int) sorted_free_list->array[i]->offset, (int) sorted_free_list->array[i]->size);
     }
 
 
@@ -28,8 +28,8 @@ void print_list_by_offset(Simulation *sim){
     printf("Used list sections sorted by offset: \n");
     BlockList* sorted_used_list = list_sort_by_offset(&(sim->used_list));
     for (int i = 0; i < sorted_used_list->size; ++i) {
-        printf("%c: Offset: %d; Size: %d.\n",
-               sorted_used_list->array[i]->name, sorted_used_list->array[i]->offset, sorted_used_list->array[i]->size);
+        printf("%s: Offset: %d; Size: %d.\n",
+                sorted_used_list->array[i]->name, (int) sorted_used_list->array[i]->offset, (int) sorted_used_list->array[i]->size);
     }
 
 }
@@ -137,6 +137,19 @@ int main(int argc, char *argv[]) {
 
     simulation_memory_usage_report(&sim);
     //print section list in offset order
-    print_list_by_offset(&sim);
+   // print_list_by_offset(&sim);
+
+    printf("\n\n===========================\n"
+           "Test: What's in sim?\nFree list:\n");
+
+    for (int i = 0; i < sim.free_list.size; ++i) {
+        printf("Offset: %d, Size: %d\n",(int)sim.free_list.array[i]->offset,(int) sim.free_list.array[i]->size);
+    }
+    printf("Used list:\n");
+
+    for (int i = 0; i < sim.used_list.size; ++i) {
+        printf("%s\n",sim.used_list.array[i]->name);
+    }
+
     return 0;
 }
