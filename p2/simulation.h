@@ -18,5 +18,5 @@ void simulation_start(Simulation *sim, const char* strategy, size_t pool);
 void simulation_alloc(Simulation *sim, const char* name, size_t amount);
 void simulation_free(Simulation *sim, const char* name);
 void simulation_merge_neighbors(Simulation *sim, size_t position);
-Block* simulation_merge(Simulation *sim,Block *first_block, Block *second_bock);
+void simulation_merge(Simulation *sim,Block *first_block, Block *second_bock);
 #endif // __SIMULATION_H

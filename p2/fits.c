@@ -149,9 +149,12 @@ void random_fits(Simulation* sim,char* name, size_t request_size){
          */
         Block* found = list_get(free_list,(size_t) list_find(free_list,found_in_all_fits->name));
         /**
-         * the index of Block found
+         * the index of the block we find in the free list
          */
         int index = (int) list_find(free_list, found_in_all_fits->name);
+
+        // free the temperate list
+        list_free(all_fits);
 
         if(found != NULL) {
             if (block_split(sim, found, name, request_size, index)){

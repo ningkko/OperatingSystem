@@ -156,7 +156,7 @@ int main(int argc, char *argv[]) {
     printf("\n====== Memory usage report ======\n"
            "Total size:%i\nTotal used size: %i\nTotal free size: %i\n",
            totalSize,totalUsedSize,totalFreeSize);
-    
+
     double used_percentage = (double) totalUsedSize/totalSize*100;
     double free_percentage = (double) totalFreeSize/totalSize*100;
     printf("Used memory percentage: %.2f%%.\nFree memory percentage: %.2f%%.\n", used_percentage, free_percentage);

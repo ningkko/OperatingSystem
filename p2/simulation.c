@@ -78,11 +78,18 @@ void simulation_free(Simulation *sim, const char* name) {
     assert(found != NULL);
     list_push(&sim->free_list, found);
 
+    // sort and merge
     list_sort_by_offset(&sim->free_list);
     ssize_t new_position = list_find(&sim->free_list, name);
     simulation_merge_neighbors(sim,(size_t) new_position);
 }
 
+/**
+ * Merges a block in the free list with its adjacent blocks
+ *
+ * @param sim
+ * @param position
+ */
 void simulation_merge_neighbors(Simulation *sim, size_t position) {
 
     BlockList* list = &sim->free_list;
@@ -91,51 +98,63 @@ void simulation_merge_neighbors(Simulation *sim, size_t position) {
         return;
     }
 
+    /**
+     * the block that we want to merge with other blocks in the free list
+     */
     Block* current_block = list->array[position];
 
-
-    //printf("Current bock,%s\nlist size:%i\nCurrent position: %i\n",current_block->name,(int) list->size,position);
-
-
+    // if has next block,
     // check current and next
     if((int)position+1<list->size){
         Block* next_block = list->array[position+1];
 
-        //printf("Next bock,%s\n",next_block->name);
-
+        // if current.offset + size=next.offset, then merge
         if (current_block->offset+current_block->size==next_block->offset){
-            //printf("Next bock merged\n");
 
-            current_block=simulation_merge(sim, current_block,next_block);
+            simulation_merge(sim, current_block,next_block);
+
         }
     }
 
+    // if has previous block,
     // check current and previous
     if(((int)position)-1>=0){
         Block* previous_block = list->array[position-1];
 
-        //printf("Previous bock,%s\n",previous_block->name);
-
+        // if previous.offset + size = next.offset, merge
         if (previous_block->offset+previous_block->size == current_block->offset){
-
-            //printf("Previous bock merged\n");
 
             simulation_merge(sim, previous_block,current_block);
         }
     }
 }
 
-Block* simulation_merge(Simulation *sim, Block *first_block, Block *second_block){
+/**
+ * merges two adjacent blocks
+ * @param sim
+ * @param first_block
+ * @param second_block
+ * @return new block
+ */
+void simulation_merge(Simulation *sim, Block *first_block, Block *second_block){
 
-    size_t size = first_block->size+second_block->size;
+    /**
+     * size of the new block
+     */
+    size_t size = first_block->size + second_block->size;
+    /**
+     * new block (merged from first_block and second_block)
+     */
     Block* newBlock = block_new(first_block->name,size);
+    // set offset to be that of the first block
     newBlock->offset = first_block->offset;
 
+    // remove previous ones
     list_remove_given_block(&sim->free_list,first_block);
     list_remove_given_block(&sim->free_list,second_block);
 
+    // push the new one
     list_push(&sim->free_list,newBlock);
-    return newBlock;
 }
 
 
