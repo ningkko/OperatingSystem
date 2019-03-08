@@ -107,7 +107,7 @@ void first_fits(Simulation* sim, char* name, int request_size){
 }
 
 /**
- * Find free block by returning a random block form the free list that fits
+ * Find free block by returning a random block from the free list that fits
  * @param sim
  * @param name
  * @param request_size
@@ -164,33 +164,62 @@ void random_fits(Simulation* sim,char* name, size_t request_size){
     }
 }
 
-
-Block* worst_fits(Simulation* sim, char* name,size_t request_size){
+/**
+ * Find free block by returning the largest block from the free list that fits
+ * 1. keep a copy of the index and size of the first bock in free list
+ * 2. loop through the list,
+ *    update the size and index when we see a new block that fits
+ *    and has a size larger than the size we currently have.
+ *
+ * @param sim
+ * @param name
+ * @param request_size
+ */
+void worst_fits(Simulation* sim, char* name,size_t request_size){
 
     BlockList* free_list = &(sim->free_list);
-    int curIndex = 0;
+
+    /**
+     * index of the largest block that fits
+     */
+    int index = 0;
+    /**
+     * size of the current largest size block
+     */
     size_t curSize = 0;
     for(int i=0; i < free_list->size; i++){
         Block* a = free_list->array[i];
         if((a->size >= request_size) && (a->size > curSize)){
-            curIndex = i;
+            index = i;
             curSize = a->size;
         }
 
     }
-    Block* toReturn = free_list->array[curIndex];
-    if(toReturn != NULL){
-        return block_split(sim, toReturn, name, request_size, curIndex);
+    /**
+     * the block we find
+     */
+    Block* found = free_list->array[index];
+
+    if(found != NULL){
+         if (block_split(sim, found, name, request_size, index)){
+             return;
+         }
+        fprintf(stderr, "Cannot locate block");
+
     }
 
     sim->failed_allocation_num+=1;
     fprintf(stderr, "All sizes of blocks inside the free_list are too small to fit in.");
-    return NULL;
 }
 
 
-
-Block* best_fits(Simulation* sim, char* name,size_t request_size){
+/**
+ * 
+ * @param sim
+ * @param name
+ * @param request_size
+ */
+void best_fits(Simulation* sim, char* name,size_t request_size){
 
     BlockList* free_list = &(sim->free_list);
 
