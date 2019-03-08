@@ -117,7 +117,13 @@ int main(int argc, char *argv[]) {
     list_sort_by_offset(&(sim.free_list));
     list_sort_by_offset(&(sim.used_list));
 
+    /**
+     * Sum of sizes of used blocks
+     */
     int totalUsedSize=0;
+    /**
+     * Sum of sizes of free blocks
+     */
     int totalFreeSize=0;
 
     printf("\n"
@@ -125,6 +131,7 @@ int main(int argc, char *argv[]) {
 
     printf("**Used list:\n");
     for (int i = 0; i < sim.used_list.size; ++i) {
+
         printf("Name: %s, offset: %i, size: %i\n",
                 sim.used_list.array[i]->name,
                (int) sim.used_list.array[i]->offset,
@@ -141,12 +148,15 @@ int main(int argc, char *argv[]) {
         totalFreeSize+=(int) sim.free_list.array[i]->size;
     }
 
+    /**
+     * Sum of sizes of all blocks
+     */
     int totalSize =totalUsedSize+totalFreeSize;
 
     printf("\n====== Memory usage report ======\n"
            "Total size:%i\nTotal used size: %i\nTotal free size: %i\n",
            totalSize,totalUsedSize,totalFreeSize);
-
+    
     double used_percentage = (double) totalUsedSize/totalSize*100;
     double free_percentage = (double) totalFreeSize/totalSize*100;
     printf("Used memory percentage: %.2f%%.\nFree memory percentage: %.2f%%.\n", used_percentage, free_percentage);

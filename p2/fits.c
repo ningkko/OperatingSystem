@@ -209,12 +209,13 @@ void worst_fits(Simulation* sim, char* name,size_t request_size){
     }
 
     sim->failed_allocation_num+=1;
-    fprintf(stderr, "All sizes of blocks inside the free_list are too small to fit in.");
+    printf("%s allocation failed. ", name);
 }
 
 
 /**
- * 
+ * Find free block by returning the smallest block from the free list that fits
+ * Basically the same as worst_fits, but size starts with the maximum integer
  * @param sim
  * @param name
  * @param request_size
@@ -223,39 +224,52 @@ void best_fits(Simulation* sim, char* name,size_t request_size){
 
     BlockList* free_list = &(sim->free_list);
 
-    int curIndex = 0;
+    int index = 0;
+    //set the initial
     size_t curSize = 2147483647;
     for(int i=0; i < free_list->size; i++){
         Block* a = free_list->array[i];
         if((a->size >= request_size) && (a->size < curSize)){
-            curIndex = i;
+            index = i;
             curSize = a->size;
         }
 
     }
-    Block* toReturn = free_list->array[curIndex];
-    if(toReturn != NULL){
-        return block_split(sim, toReturn, name, request_size, curIndex);
+
+    Block* found = free_list->array[index];
+    if(found!= NULL){
+        if (block_split(sim, found, name, request_size, index)){
+            return;
+        }
+        fprintf(stderr, "Cannot locate block");
     }
 
     sim->failed_allocation_num+=1;
-    fprintf(stderr, "All sizes of blocks inside the free_list are too small to fit in.");
-    return NULL;
+    printf("%s allocation failed. ", name);
 }
 
-Block* next_fits(Simulation* sim, char* name, int request_size){
+/**
+ * Find free block by returning the next block from the free list that fits
+ * @param sim
+ * @param name
+ * @param request_size
+ * @return
+ */
+void next_fits(Simulation* sim, char* name, int request_size){
+
     BlockList* free_list = &(sim->free_list);
-    size_t size = free_list->size;
 
-
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < free_list->size; i++){
         int wrap = (i+sim->prevIndex)%(free_list->size);
         Block* b = free_list->array[wrap];
         if(b->size >= request_size){
             sim->prevIndex = wrap;
-            return block_split(sim, b, name, request_size,wrap);
+            if (block_split(sim, b, name, request_size,wrap)){
+                return;
+            }
+            fprintf(stderr, "Cannot locate block");
         }
     }
     sim->failed_allocation_num+=1;
-    return NULL;
+    printf("%s allocation failed. ", name);
 }
