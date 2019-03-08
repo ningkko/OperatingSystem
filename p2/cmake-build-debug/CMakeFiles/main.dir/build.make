@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c
+CMAKE_SOURCE_DIR = /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -59,55 +59,55 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/main.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/main.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/main.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/main.c
 
 CMakeFiles/main.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c > CMakeFiles/main.dir/main.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/main.c > CMakeFiles/main.dir/main.c.i
 
 CMakeFiles/main.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c -o CMakeFiles/main.dir/main.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/main.c -o CMakeFiles/main.dir/main.c.s
 
 CMakeFiles/main.dir/fits.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/fits.c.o: ../fits.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/fits.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/fits.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/fits.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/fits.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/fits.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/fits.c
 
 CMakeFiles/main.dir/fits.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/fits.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/fits.c > CMakeFiles/main.dir/fits.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/fits.c > CMakeFiles/main.dir/fits.c.i
 
 CMakeFiles/main.dir/fits.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/fits.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/fits.c -o CMakeFiles/main.dir/fits.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/fits.c -o CMakeFiles/main.dir/fits.c.s
 
 CMakeFiles/main.dir/block.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/block.c.o: ../block.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main.dir/block.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/block.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main.dir/block.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/block.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/block.c
 
 CMakeFiles/main.dir/block.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/block.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c > CMakeFiles/main.dir/block.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/block.c > CMakeFiles/main.dir/block.c.i
 
 CMakeFiles/main.dir/block.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/block.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c -o CMakeFiles/main.dir/block.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/block.c -o CMakeFiles/main.dir/block.c.s
 
 CMakeFiles/main.dir/simulation.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/simulation.c.o: ../simulation.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main.dir/simulation.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/simulation.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main.dir/simulation.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/simulation.c.o   -c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/simulation.c
 
 CMakeFiles/main.dir/simulation.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/simulation.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c > CMakeFiles/main.dir/simulation.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/simulation.c > CMakeFiles/main.dir/simulation.c.i
 
 CMakeFiles/main.dir/simulation.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/simulation.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c -o CMakeFiles/main.dir/simulation.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/simulation.c -o CMakeFiles/main.dir/simulation.c.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -125,7 +125,7 @@ main: CMakeFiles/main.dir/block.c.o
 main: CMakeFiles/main.dir/simulation.c.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +138,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2 /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2 /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug /Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

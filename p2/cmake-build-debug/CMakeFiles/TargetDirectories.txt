@@ -1,3 +1,3 @@
-/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/main.dir
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles/main.dir

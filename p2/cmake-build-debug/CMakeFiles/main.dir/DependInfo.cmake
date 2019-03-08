@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/block.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/main.dir/block.c.o"
-  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/fits.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/main.dir/fits.c.o"
-  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/main.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/main.dir/main.c.o"
-  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/simulation.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/memfit-c/cmake-build-debug/CMakeFiles/main.dir/simulation.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/block.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles/main.dir/block.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/fits.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles/main.dir/fits.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/main.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles/main.dir/main.c.o"
+  "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/simulation.c" "/Users/zhongshengqi/Documents/GitHub/OperatingSystem/p2/cmake-build-debug/CMakeFiles/main.dir/simulation.c.o"
   )
 set(CMAKE_C_COMPILER_ID "Clang")
 

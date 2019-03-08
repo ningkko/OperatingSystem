@@ -13,7 +13,7 @@ Block* block_split(Simulation* sim, Block* block, char* name, size_t request_siz
 
     if(block->size < request_size){
         sim->failed_allocation_num++;
-        fprintf(stderr, "Cannot split. Request size is larger than the size of given block.");
+        fprintf(stdout, "Cannot split. Request size is larger than the size of given block.");
         return NULL;
     }
     else if(block->size == request_size){
@@ -44,7 +44,6 @@ Block* block_split(Simulation* sim, Block* block, char* name, size_t request_siz
 Block* first_fits(Simulation* sim, char* name, int request_size){
 
     BlockList* free_list = &(sim->free_list);
-    BlockList* used_list = &(sim->used_list);
     size_t size = free_list->size;
     int curIndex = 0;
     int counter = 0;
@@ -66,26 +65,26 @@ Block* first_fits(Simulation* sim, char* name, int request_size){
 
 Block* random_fits(Simulation* sim,char* name, size_t request_size){
     BlockList* free_list = &(sim->free_list);
-    int index = 0;
-    srand(time(NULL));
-    int indexes[free_list->size];
-    int correct_size=0;
-    for(int i=0; i< free_list->size; i++){
-        Block* block = free_list->array[i];
-        if(free_list->array[i]->size >= request_size){
-            indexes[correct_size]=i;
-            correct_size += 1;
-        }
 
+    // a list of blocks that fit the request size
+    BlockList* that_fit;
+    list_init(that_fit);
+
+    for(int i=0; i< free_list->size; i++){
+        if(free_list->array[i]->size >= request_size) {
+            list_push(that_fit, free_list->array[i]);
+        }
     }
 
-    if(correct_size<=0){
+    if(that_fit->size<=0){
         sim->failed_allocation_num++;
         return NULL;
     }
 
-    index = rand()%correct_size;
-    Block* found = free_list->array[index];
+    int index = rand()%that_fit->size;
+    Block* found_in_fit = that_fit->array[index];
+    Block* found = list_get(free_list,(size_t) list_find(free_list,found_in_fit->name));
+    index = (int) list_find(free_list, found_in_fit->name);
     if(found != NULL){
         return block_split(sim, found, name, request_size, index);
     }
@@ -120,7 +119,6 @@ Block* worst_fits(Simulation* sim, char* name,size_t request_size){
 Block* best_fits(Simulation* sim, char* name,size_t request_size){
 
     BlockList* free_list = &(sim->free_list);
-    BlockList* used_list = &(sim->used_list);
 
     int curIndex = 0;
     size_t curSize = 2147483647;
