@@ -14,7 +14,7 @@ Memory Allocation Assignment (Due Friday, 8 March 2019)
 ### Program structure
 1. All algorithms are written in fits.c
 2. Algorithm selections are stored and parsed in simulation_start() and simlation_alloc() in simulation.c.
-3. Free a block: everytime we free a block, the program will merge it with its adjacent blocks (written in simulation.c, at the bottom).
+3. To free a block: everytime we free a block, the program will merge it with its adjacent blocks (written in simulation.c, at the bottom).
 4. Free_list is always sorted by offset using list_sort_by_offset() written in block.c.
 5. Memory report is written in main.c, the section after parsing the input file.
 6. Failed_allocation_number is stored in sim and is updated everytime an algorithm fails to allocate a block with required size.
