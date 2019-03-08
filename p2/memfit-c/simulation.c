@@ -2,7 +2,6 @@
 #include "fits.h"
 #include <assert.h>
 #include <stdio.h>
-#include <gmpxx.h>
 
 void simulation_init(Simulation *sim) {
     list_init(&sim->free_list);
@@ -45,23 +44,23 @@ void simulation_alloc(Simulation *sim, const char* name, size_t amount) {
     assert(sim != NULL);
 
     if (sim->algorithm==1){
-        Block* block = first_fits( sim, name, amount);
+        first_fits( sim, name, amount);
     }
 
     else if (sim->algorithm==2){
-        Block* block = random_fits( sim, name, amount);
+        random_fits( sim, name, amount);
     }
 
     else if (sim->algorithm==3){
-        Block* block = worst_fits( sim, name, amount);
+        worst_fits( sim, name, amount);
     }
 
     else if (sim->algorithm==4){
-        Block* block = best_fits( sim, name, amount);
+        best_fits( sim, name, amount);
     }
 
     else if (sim->algorithm==5){
-        Block* block = next_fits( sim, name, amount);
+        next_fits( sim, name, amount);
     }
     else {
         fprintf(stderr, "sim->algorithm set incorrectly!\n");
@@ -79,6 +78,7 @@ void simulation_free(Simulation *sim, const char* name) {
     assert(found != NULL);
     list_push(&sim->free_list, found);
 
+    list_sort_by_offset(&sim->free_list);
     ssize_t new_position = list_find(&sim->free_list, name);
     simulation_merge_neighbors(sim,(size_t) new_position);
 }
@@ -86,40 +86,56 @@ void simulation_free(Simulation *sim, const char* name) {
 void simulation_merge_neighbors(Simulation *sim, size_t position) {
 
     BlockList* list = &sim->free_list;
-    // if none or only two, no need of merging
-    if(list->size==0||list->size==1){
+    // if only one no need of merging
+    if(list->size==1){
         return;
     }
-    // somewhere before here, you accidentally made list->array = 2
+
     Block* current_block = list->array[position];
 
+
+    printf("Current bock,%s\nlist size:%i\nCurrent position: %i\n",current_block->name,(int) list->size,position);
+
+
     // check current and next
-    if(position+1<list->size){
+    if((int)position+1<list->size){
         Block* next_block = list->array[position+1];
-        if (current_block->offset+current_block->size==next_block->offset-1){
-            simulation_merge(sim, current_block,next_block);
+
+        printf("Next bock,%s\n",next_block->name);
+
+        if (current_block->offset+current_block->size==next_block->offset){
+            printf("Next bock merged\n");
+
+            current_block=simulation_merge(sim, current_block,next_block);
         }
     }
 
-    // check current and next
-    if(position-1>=0){
+    // check current and previous
+    if(((int)position)-1>=0){
         Block* previous_block = list->array[position-1];
-        if (previous_block->offset+previous_block->size == current_block->offset-1){
+
+        printf("Previous bock,%s\n",previous_block->name);
+
+        if (previous_block->offset+previous_block->size == current_block->offset){
+
+            printf("Previous bock merged\n");
+
             simulation_merge(sim, previous_block,current_block);
         }
     }
 }
 
-void simulation_merge(Simulation *sim, Block *first_block, Block *second_block){
+Block* simulation_merge(Simulation *sim, Block *first_block, Block *second_block){
 
     size_t size = first_block->size+second_block->size;
-    Block *newBlock = block_new(first_block->name,size);
+    Block* newBlock = block_new(first_block->name,size);
     newBlock->offset = first_block->offset;
 
     list_remove_given_block(&sim->free_list,first_block);
     list_remove_given_block(&sim->free_list,second_block);
 
     list_push(&sim->free_list,newBlock);
+    return newBlock;
 }
 
 
