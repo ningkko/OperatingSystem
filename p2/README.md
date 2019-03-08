@@ -2,15 +2,27 @@
 
 Memory Allocation Assignment (Due Friday, 8 March 2019)
 
-## Example Input File:
+## Build and run
+Download file, cd to memfit/, run main.c in CLION.
 
+## Give me an input file that you have used.
 ```
-pool first 1000
+pool random 1000
 alloc A 200
 alloc B 300
 alloc C 100
 free B
+alloc D 150
+alloc E 100
+alloc F 200
+free D
+alloc G 100
+alloc H 100
+free C
 ```
+We tested it line by line, you can do the same thing to verify these algorithms:)
+
+## Other
 
 The input file contains a sequence of lines with one of three commands on them:
 
@@ -19,6 +31,8 @@ The input file contains a sequence of lines with one of three commands on them:
 -	``free NAME``
 
 ``ALGORITHM`` is one of "first", "best", "worst", "next" or "random".
+
+-----------------------------------------------------------------------------------
 
 ## Rubric
 
@@ -44,54 +58,3 @@ The input file contains a sequence of lines with one of three commands on them:
 -	(10) Program outputs a list of used and free sections in offset order.
 -	(5) Program outputs the percentage of used, free memory after executing a file.
 -	(5) Program outputs the number of failed allocations after executing a file.
-
-### Extra Credit Opportunities:
-
-- Do (some of) it again, but in plain C.
-- Unit tests for tricky algorithms, like compactFreeSpace.
-- Try outputting HTML tables or SVG for automatically generating snazzy diagrams.
-- Generate input files automatically.
-- Figure out how to make Best or Worst fit use a heap.
-- Figure out how to measure fragmentation. Is there a single number you could use to represent how fragmented your simulator is?
-
-## Architecture Hints (Java)
-
-```java
-// I’d want a simulation class to do most of the work.
-class Simulation {
-  String algorithm;
-  List<Block> free_list;
-  List<Block> used_list;
-   
-  // Strongly recommend you start with printing out the pieces.
-  void print();
-  Block alloc(String name, int size) { /* #4,#5,#6 on worksheet */ }
-  private Block alloc_first(String name, int size);
-  …
-  void free(String name);
-  private void splitBlock(Block b, String newName, int size) { /* #1 on worksheet */ }
-  private void compactFreeList() { /* #3 on worksheet */ }
-  public static void main(String[] args) { /* #9 on worksheet (modified) */ }
-}
-
-// I’d want a block class with at least these fields and methods.
-class Block {
-  String name;
-  int offset;
-  int size;
-  public String toString(); // highly recommended
-  public boolean is_adjacent(Block other) { /* #2 on worksheet*/  }
-}
-
-// Sort-by in Java: (needs a class)
-class ByOffset implements Comparator<Block> {
-  @Override int compare(Block lhs, Block rhs) {
-    return Integer.compare(lhs.offset, rhs.offset);
-  }
-}
-
-static void exampleSort(List<Block> blocks) {
-    Collections.sort(blocks, new ByOffset());
-}
-
-```
