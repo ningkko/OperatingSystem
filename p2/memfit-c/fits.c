@@ -12,6 +12,7 @@ Block* block_split(Simulation* sim, Block* block, char* name, size_t request_siz
     BlockList* used_list = &sim->used_list;
 
     if(block->size < request_size){
+        sim->failed_allocation_num++;
         fprintf(stderr, "Cannot split. Request size is larger than the size of given block.");
         return NULL;
     }
@@ -71,14 +72,14 @@ Block* random_fits(Simulation* sim,char* name, size_t request_size){
     int correct_size=0;
     for(int i=0; i< free_list->size; i++){
         Block* block = free_list->array[i];
-        if(block->size >= request_size){
+        if(free_list->array[i]->size >= request_size){
             indexes[correct_size]=i;
             correct_size += 1;
         }
 
     }
 
-    if(correct_size==0){
+    if(correct_size<=0){
         sim->failed_allocation_num++;
         return NULL;
     }

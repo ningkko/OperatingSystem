@@ -113,8 +113,6 @@ int main(int argc, char *argv[]) {
 
     fclose(input);
 
-    //print failed allocation times
-    printf("\nTotal allocation failed: %d\n",sim.failed_allocation_num);
 
     list_sort_by_offset(&(sim.free_list));
     list_sort_by_offset(&(sim.used_list));
@@ -153,6 +151,9 @@ int main(int argc, char *argv[]) {
     double free_percentage = (double) totalFreeSize/totalSize*100;
     printf("Used memory percentage: %.2f%%.\nFree memory percentage: %.2f%%.\n", used_percentage, free_percentage);
 
+    //print failed allocation times
+    printf("\n=================================\n"
+           "Total allocation failed: %d\n",sim.failed_allocation_num);
 
     return 0;
 }

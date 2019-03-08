@@ -94,17 +94,17 @@ void simulation_merge_neighbors(Simulation *sim, size_t position) {
     Block* current_block = list->array[position];
 
 
-    printf("Current bock,%s\nlist size:%i\nCurrent position: %i\n",current_block->name,(int) list->size,position);
+    //printf("Current bock,%s\nlist size:%i\nCurrent position: %i\n",current_block->name,(int) list->size,position);
 
 
     // check current and next
     if((int)position+1<list->size){
         Block* next_block = list->array[position+1];
 
-        printf("Next bock,%s\n",next_block->name);
+        //printf("Next bock,%s\n",next_block->name);
 
         if (current_block->offset+current_block->size==next_block->offset){
-            printf("Next bock merged\n");
+            //printf("Next bock merged\n");
 
             current_block=simulation_merge(sim, current_block,next_block);
         }
@@ -114,11 +114,11 @@ void simulation_merge_neighbors(Simulation *sim, size_t position) {
     if(((int)position)-1>=0){
         Block* previous_block = list->array[position-1];
 
-        printf("Previous bock,%s\n",previous_block->name);
+        //printf("Previous bock,%s\n",previous_block->name);
 
         if (previous_block->offset+previous_block->size == current_block->offset){
 
-            printf("Previous bock merged\n");
+            //printf("Previous bock merged\n");
 
             simulation_merge(sim, previous_block,current_block);
         }
