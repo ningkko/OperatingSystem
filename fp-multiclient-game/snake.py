@@ -1,132 +1,61 @@
-# SNAKES GAME
-# Use ARROW KEYS to play, SPACE BAR for pausing/resuming and Esc Key for exiting
-
 import curses
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 from random import randint
 
-def main():
+class Snake:
 
-    curses.initscr()
-    global win
-    win = curses.newwin(20, 60, 0, 0)
-    win.keypad(1)
-    curses.noecho()
-    curses.curs_set(0)
-    win.border(0)
-    win.nodelay(1)
+    def __init__(self, position):
 
-    # snake 1 direction. Initialized to be moving towards right
-    key1 = 100  
-    # right, snake 2
-    key2 = KEY_RIGHT                                             
+        self.position = position
+        self.score = 0
+        self.canMove = True
+        self.lose = False
+
+    def move(self, win, food, key):
+
     
-    score1 = 0
-    score2 = 0
-    snake1 = [[4,10], [4,9], [4,8]]                                  
-    snake2 = [[14,10], [14,9], [14,8]]                                     
+        self.position.insert(0, [self.position[0][0] + (key == KEY_DOWN and 1) + (key == KEY_UP and -1), self.position[0][1] + (key == KEY_LEFT and -1) + (key == KEY_RIGHT and 1)])
 
-    global food
-    food = [10,20]                                                     
-
-    win.addch(food[0], food[1], '*')                                
-
-    global move
-    move = True                                             
+        # If snake crosses the boundaries, make it enter from the other side
+        if self.position[0][0] == 0: self.position[0][0] = 18
+        if self.position[0][1] == 0: self.position[0][1] = 58
+        if self.position[0][0] == 19: self.position[0][0] = 1
+        if self.position[0][1] == 59: self.position[0][1] = 1
 
 
-    win.timeout(int(150 - (3/5 + 3/10)%120))                              
+        # Exit if snake crosses the boundaries 
+        #if snake[0][0] == 0 or snake[0][0] == 19 or snake[0][1] == 0 or snake[0][1] == 59: 
+        #    self.canMove = False
+        #    self.lose = True
 
-    while key1 != 27 and key2 != 27:      
-                                            
-        win.border(0)
-        win.addstr(0, 2, 'Score1 : ' + str(score1) + ' ')                
-        win.addstr(0, 47, 'Score2 : ' + str(score2) + ' ')                
-        win.addstr(0, 27, ' SNAKE ')     
+        # If snake runs over itself
+        if self.position[0] in self.position[1:]: 
 
-        prevKey1 = key1
-        prevKey2 = key2
+                # lose and stop moving
+                self.lose = True
+                self.canMove = False  
 
-        key = win.getch()
-        #key = key if event == -1 else event 
+        if self.canMove:
 
-        if key in [97, 65, 119,87, 115,83,100 ,68]:     
-            
-            key1 = key
-            key2 = prevKey2
+            # if the snake head touches the food
+            if self.position[0] == food:   
+                food = []
+                self.score += 1
 
-        elif key in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN]:
-            
-            key2 = key
-            key1 = prevKey1
+                # generate a new food
+                while food == []:
+                    food = [randint(1, 18), randint(1, 58)]                
+                    if food in self.position: food = []
 
-        elif key == ord(' '):                                            
-            key,key1,key2 = -1 
+                win.addch(food[0], food[1], '*')
 
-            while key != ord(' '):
-                key = win.getch()
-            key1 = prevKey1
-            key2 = prevKey2
-            continue
+            else:
 
-        else:
-            key1 = prevKey1
-            key2 = prevKey2
-        
-        score1 = move_snake(snake1, key1, 1, score1)
-        score2 = move_snake(snake2, key2, 2, score2)
+                # pop the tail of the snake
+                last = self.position.pop()                                         
+                win.addch(last[0], last[1], ' ')
 
-    curses.endwin()
+            # add a head to the snake (pretend that it's moving)
+            win.addch(self.position[0][0], self.position[0][1], '#')
 
-    print("\nScore1 - " + str(score1))
-    print("\nScore2 - " + str(score2))
-
-def move_snake(snake,key,snake_num,score):
-
-    global win
-    global food
-    global move
-
-    # Calculates the new coordinates of the head of the snake. NOTE: len(snake) increases.
-    # This is taken care of later at [1].
-
-    if snake_num == 1:
-        snake.insert(0, [snake[0][0] + ((key == 115 or key == 83) and 1) + ((key == 119 or key == 87) and -1), snake[0][1] + ((key == 97 or key == 65) and -1) + ((key == 100 or key ==68) and 1)])
-
-
-    elif snake_num == 2:
-        snake.insert(0, [snake[0][0] + (key == KEY_DOWN and 1) + (key == KEY_UP and -1), snake[0][1] + (key == KEY_LEFT and -1) + (key == KEY_RIGHT and 1)])
-
-    # If snake crosses the boundaries, make it enter from the other side
-    if snake[0][0] == 0: snake[0][0] = 18
-    if snake[0][1] == 0: snake[0][1] = 58
-    if snake[0][0] == 19: snake[0][0] = 1
-    if snake[0][1] == 59: snake[0][1] = 1
-
-
-    # Exit if snake crosses the boundaries (Uncomment to enable)
-    #if snake[0][0] == 0 or snake[0][0] == 19 or snake[0][1] == 0 or snake[0][1] == 59: break
-
-    # If snake runs over itself
-    if snake[0] in snake[1:]: 
-            win.addstr(0, 27, 'You Lose')  
-
-    if move:
-        if snake[0] == food:   
-            curses.beep()                                        
-            food = []
-            score += 1
-            while food == []:
-                food = [randint(1, 18), randint(1, 58)]                
-                if food in snake: food = []
-            win.addch(food[0], food[1], '*')
-
-        else:  
-            last = snake.pop()                                         
-            win.addch(last[0], last[1], ' ')
-
-        win.addch(snake[0][0], snake[0][1], '#')
-
-    return score
-
-main()
+        return food
