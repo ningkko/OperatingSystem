@@ -2,14 +2,13 @@ import socket
 
 class Network:
 
-    def init(self):
-
+    def __init__(self):
+        
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.host = ""
-        self.port = 8880
+        self.port = 8881
         self.addr = (self.host, self.port)
-        #TODO: add conn
-        self.conn=self.connect()
+        self.data = self.connect()
 
 
 
