@@ -1,3 +1,45 @@
+import socket
+from thread import *
+import json
+import sys
+
+
+class Player():
+    """
+    A player class to manage data
+    """
+    def __init__(self):
+        self.connection = None
+        self.address = None
+        self.data = None
+
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+host = ''
+port = 8880
+server_ip = socket.gethostbyname(host)
+
+
+snake1_position = [[4,10], [4,9], [4,8]]
+snake2_position = [[14,10], [14,9], [14,8]]
+
+# initial data
+initial_data1 = {
+    'position': snake1_position,
+    'score': 0,
+    'lose': False,
+    "food": [10,20],
+    'key': KEY_RIGHT
+}
+initial_data2 = {
+    'position': snake2_position,
+    'score': 0,
+    'lose': False,
+    "food": [10,20], 
+    'key': KEY_RIGHT
+}
+
 
 try:
     server.bind((host, port))
@@ -70,4 +112,14 @@ while True:
 
         sendto(json.dumps(initial_data2),players[1].address)
 
-        print("Player 2 connected."
+        print("Player 2 connected.")
+    
+
+    # if both connected, start new threads
+    if players[0].connection and players[1].connection:
+
+        start_new_thread(threaded_client, (conn,))
+        start_new_thread(threaded_client, (conn,))
+
+        print("Game start.")
+        break;
