@@ -4,16 +4,16 @@ from random import randint
 
 class Snake:
 
-    def __init__(self, position):
+    def __init__(self, position, score, lose, key):
 
         self.position = position
-        self.score = 0
+        self.score = score
         self.canMove = True
-        self.lose = False
+        self.lose = lose
+        self.key = key
 
     def move(self, win, food, key):
 
-    
         self.position.insert(0, [self.position[0][0] + (key == KEY_DOWN and 1) + (key == KEY_UP and -1), self.position[0][1] + (key == KEY_LEFT and -1) + (key == KEY_RIGHT and 1)])
 
         # If snake crosses the boundaries, make it enter from the other side
