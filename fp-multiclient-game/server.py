@@ -1,7 +1,10 @@
-import socket
+from socket import *
 from thread import *
 import json
 import sys
+from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
+import curses
+import socket
 
 
 class Player():
@@ -14,12 +17,13 @@ class Player():
         self.data = None
 
 
+listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host = ''
-port = 8880
+port = 8881
 server_ip = socket.gethostbyname(host)
-
+has_p2 = False
 
 snake1_position = [[4,10], [4,9], [4,8]]
 snake2_position = [[14,10], [14,9], [14,8]]
@@ -30,17 +34,17 @@ initial_data1 = {
     'score': 0,
     'lose': False,
     "food": [10,20],
-    'key': KEY_RIGHT
+    'key': KEY_RIGHT,
+    'has_p2': False
 }
 initial_data2 = {
     'position': snake2_position,
     'score': 0,
     'lose': False,
-    "food": [10,20], 
-    'key': KEY_RIGHT
+    "food": [10,20],
+    'key': KEY_RIGHT,
+    'has_p2': False
 }
-
-
 try:
     server.bind((host, port))
 
@@ -56,34 +60,40 @@ players = [Player(), Player()]
 
 
 def threaded_client(conn):
-    
+
     try:
         playerid = 1 if players[0].connection == conn else 2
 
         while True:
-            try:
-                # keep fetching data
-                data = conn.recv(2048)
+            # keep fetching data
+            data = conn.recv(2048)
+            data = json.loads(data.decode("utf-8"))
+            data["has_p2"] = has_p2
+            data = bytes(json.dumps(data),"utf-8")
 
-                if not data:
-                    print("Data missing from player", str(playerid))
-                    break
+            if not data:
+                print("Data missing from player", str(playerid))
+                # break
 
-                else:
+            else:
+            	if has_p2:
                     # send data to player 2 if the data is from player 1
                     if playerid == 1:
-                        sendto(data, players[1].address)
+                        server.sendto(data, players[1].address)
 
                     # send to p1 if from p2
                     elif playerid == 2:
-                        sendto(data, players[0].address)                    
-            
-            except:
-                break
+                        server.sendto(data, players[0].address)
 
-    finally: 
+                else: 
+                    print("Opponent Left.")
+
+
+    finally:
         print("Connection Closed")
         conn.close()
+
+
 
 
 while True:
@@ -94,12 +104,13 @@ while True:
 
 
     if not players[0].connection:
-        # initialize the first player when there is one connection 
+        # initialize the first player when there is one connection
         players[0].connection = conn
         players[0].address = address
         players[0].data = initial_data1
 
-        sendto(json.dumps(initial_data1),players[0].address)
+        data1 = json.dumps(initial_data1)
+        server.sendto(data1.encode("utf-8"),players[0].address)
 
         print("Player 1 connected.")
 
@@ -110,16 +121,18 @@ while True:
         players[1].address = address
         players[1].data = initial_data2
 
-        sendto(json.dumps(initial_data2),players[1].address)
+        data2 = json.dumps(initial_data2)
+        server.sendto(data2.encode("utf-8"),players[1].address)
 
         print("Player 2 connected.")
-    
 
-    # if both connected, start new threads
-    if players[0].connection and players[1].connection:
+        # if both connected, start new threads
+        if players[0].connection and players[1].connection:
+            has_p2 = True
+            start_new_thread(threaded_client, (conn,))
+            start_new_thread(threaded_client, (conn,))
 
-        start_new_thread(threaded_client, (conn,))
-        start_new_thread(threaded_client, (conn,))
+            print("Game start.")
+            break;
 
-        print("Game start.")
-        break;
+
