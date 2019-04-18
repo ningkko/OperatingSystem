@@ -4,6 +4,7 @@ from random import randint
 from snake import Snake
 from network import Network
 import ast
+import json
 
 class Game:
     def __init__(self):
@@ -13,14 +14,16 @@ class Game:
         # set up network and windows
         self.net = Network()
         self.win = curses.newwin(20, 60, 0, 0)
-
+        self.food = [0,0]
         # initial positions of two snakes
         self.snake1 = Snake([[4,10], [4,9], [4,8]])
         self.snake2 = Snake([[14,10], [14,9], [14,8]])
 
-        # inite food position and key (direction of snakes)
-        self.food = [10,20] 
         self.key = KEY_RIGHT
+
+        self.snake1.position, self.snake1.score, self.snake1.lose, self.food = self.parse_data(self.send_data())
+
+
 
         self.setup()
 
@@ -37,48 +40,51 @@ class Game:
 
     def run(self):
 
-        # it's the escape key
-        while self.key != 27:      
-                                            
-            # what to draw on the windows
-            self.win.border(0)
-            self.win.addstr(0, 2, 'Player1 : ' + str(self.snake1.score) + ' ')
-            self.win.addstr(0, 47, 'Player2 : ' + str(self.snake2.score) + ' ')
-            self.win.addstr(0, 27, ' SNAKE ')     
+        try:
+            # it's the escape key
+            while self.key != 27:      
+                                                
+                # what to draw on the windows
+                self.win.border(0)
+                self.win.addstr(0, 2, 'Player1 : ' + str(self.snake1.score) + ' ')
+                self.win.addstr(0, 47, 'Player2 : ' + str(self.snake2.score) + ' ')
+                self.win.addstr(0, 27, ' SNAKE ')     
 
-            # update prekey
-            prevKey = self.key
-        
-            # is there a new key pressed?
-            event = self.win.getch()
-            self.key = self.key if event == -1 else event 
+                # update prekey
+                prevKey = self.key
+            
+                # is there a new key pressed?
+                event = self.win.getch()
+                self.key = self.key if event == -1 else event 
 
-            # if new key not what we want
-            if not self.key in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN]:
-                self.key = prevKey
+                # if new key not what we want
+                if not self.key in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN]:
+                    self.key = prevKey
 
-            # if space is pressed
-            if self.key == ord(' '):                                            
-                self.key = -1 
+                # if space is pressed
+                if self.key == ord(' '):                                            
+                    self.key = -1 
 
-                while self.key != ord(' '):
-                    self.key = self.win.getch()
-                self.key = prevKey
-                continue
+                    while self.key != ord(' '):
+                        self.key = self.win.getch()
+                    self.key = prevKey
+                    continue
 
-            # move your snake 
-            self.food = self.snake1.move(self.win, self.food, self.key)
+                # move your snake 
+                self.food = self.snake1.move(self.win, self.food, self.key)
 
-            # update the other snake with network
-            self.snake2.position, self.snake2.score, self.snake2.lose, self.food = self.parse_data(self.send_data())
-            # move the other snake
-            self.snake2.move(self.win, self.food)
+                # update the other snake with network
+                self.snake2.position, self.snake2.score, self.snake2.lose, self.food , p2_key= self.parse_data(self.send_data())
+                # move the other snake
+                self.snake2.move(self.win, self.food, p2_key)
 
-        curses.endwin()
+            curses.endwin()
 
-        # tell people you quitted
-        self.net.send("Player2 is offline...")
-        print("Exited.")
+        finally:
+            # tell people you quitted
+            self.net.send("Player2 is offline...")
+            self.net.close()
+            print("Exited.")
 
         # print out results
         print("\nPlayer1 - " + str(self.snake1.score))
@@ -87,7 +93,7 @@ class Game:
 
     def send_data(self):
         """
-        Send 0. your id 
+        Send 
              1. snake.position 
              2. snake.score 
              3. snake.lose 
@@ -96,21 +102,29 @@ class Game:
 
         return: None
         """
-        data = str(self.snake1.position) + "," + str(self.snake1.score) + "," + str(self.snake1.lose) + "," + str(self.food)
+        data = {
+            'position': self.snake1.position,
+            'score': self.snake1.score,
+            'lose': self.snake1.lose,
+            'food': self.food,
+            'key': self.key 
+        }
+
+        data = json.dumps(data)
         reply = self.net.send(data)
         return reply
 
     @staticmethod
     def parse_data(data):
+        curses.endwin()
+
         """parse what you get back from thr server"""
         try:
 
-            # get rid of the id
-            d = data.split(",")
+            print("RAW: ", data)
+            d = json.loads(data)
             print(d)
-            return ast.literal_eval(d[0]), ast.literal_eval(d[1]), ast.literal_eval(d[2]), ast.literal_eval(d[3]) 
+            return d['position'], d['score'], d['lose'], d['food'] ,d['key']
 
         except:
-            return 0
-
-
+            return [[0,0],[1,0],[2,0]], 0, False, [0,0]
