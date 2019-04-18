@@ -10,21 +10,14 @@ class Game:
     def __init__(self):
 
         curses.initscr()
-
-        # set up network and windows
-        self.net = Network()
         self.win = curses.newwin(20, 60, 0, 0)
+        self.net = Network()
+        position, score, food, lose, key, has_p2 = self.parse_data(self.net.data)
+        self.key = key
+        self.snake1 = Snake(position, score, lose, key)
+        self.snake2 = None
+        self.local_has_p2 = False
         self.food = [0,0]
-        # initial positions of two snakes
-        self.snake1 = Snake([[4,10], [4,9], [4,8]])
-        self.snake2 = Snake([[14,10], [14,9], [14,8]])
-
-        self.key = KEY_RIGHT
-
-        self.snake1.position, self.snake1.score, self.snake1.lose, self.food = self.parse_data(self.send_data())
-
-
-
         self.setup()
 
     def setup(self):
@@ -39,15 +32,17 @@ class Game:
         self.win.timeout(int(150 - (3/5 + 3/10)%120))         
 
     def run(self):
-
+        print("here")
         try:
+            print("workinghere")
             # it's the escape key
             while self.key != 27:      
                                                 
                 # what to draw on the windows
                 self.win.border(0)
                 self.win.addstr(0, 2, 'Player1 : ' + str(self.snake1.score) + ' ')
-                self.win.addstr(0, 47, 'Player2 : ' + str(self.snake2.score) + ' ')
+                score_snake2 = str(self.snake2.score) if self.snake2 else ""
+                self.win.addstr(0, 47, 'Player2 : ' + score_snake2 + ' ')
                 self.win.addstr(0, 27, ' SNAKE ')     
 
                 # update prekey
@@ -74,9 +69,13 @@ class Game:
                 self.food = self.snake1.move(self.win, self.food, self.key)
 
                 # update the other snake with network
-                self.snake2.position, self.snake2.score, self.snake2.lose, self.food , p2_key= self.parse_data(self.send_data())
-                # move the other snake
-                self.snake2.move(self.win, self.food, p2_key)
+                position, score, food, lose, key, has_p2 = self.parse_data(self.send_data())
+                if has_p2:
+                    if self.local_has_p2 == False:
+                        self.local_has_p2 = True
+                        self.snake2 = Snake(position, score, lose, key)
+                    # move the other snake
+                    self.snake2.move(self.win, self.food, p2_key)
 
             curses.endwin()
 
@@ -97,7 +96,8 @@ class Game:
              1. snake.position 
              2. snake.score 
              3. snake.lose 
-             4. new food location 
+             4. new food location
+             5. key
         to the server
 
         return: None
@@ -107,11 +107,11 @@ class Game:
             'score': self.snake1.score,
             'lose': self.snake1.lose,
             'food': self.food,
-            'key': self.key 
+            'key': self.key
         }
 
         data = json.dumps(data)
-        reply = self.net.send(data)
+        reply = self.net.send(data.encode("utf-8"))
         return reply
 
     @staticmethod
@@ -122,9 +122,11 @@ class Game:
         try:
 
             print("RAW: ", data)
-            d = json.loads(data)
+            d = json.loads(data.decode("utf-8"))
             print(d)
-            return d['position'], d['score'], d['lose'], d['food'] ,d['key']
+            return d['position'], d['score'], d['lose'], d['food'], d['key'], d['has_p2']
 
         except:
-            return [[0,0],[1,0],[2,0]], 0, False, [0,0]
+            return [[0,0],[1,0],[2,0]], 0, False, [0,0], -1, False
+
+
