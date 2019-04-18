@@ -2,18 +2,21 @@ import socket
 
 class Network:
 
-    def __init__(self):
-        
+    def init(self):
+
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.host = ""
-        self.port = 8000
+        self.port = 8880
         self.addr = (self.host, self.port)
-        self.id = None
-        
+        #TODO: add conn
+        self.conn=self.connect()
+
+
 
     def connect(self):
-        self.id = self.client.connect(self.addr)
+        self.client.connect(self.addr)
         return self.client.recv(2048).decode()
+
 
     def send(self, data):
         try:
@@ -22,3 +25,5 @@ class Network:
             return data
         except socket.error as e:
             return str(e)
+    def close(self):
+        self.client.close()
